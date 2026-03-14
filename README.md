@@ -5,4 +5,4 @@ Ao final de cada PHAse, o aluno encontra avaliações interativas elaboradas com
 
 
 Aprenda no seu ritmo, evolua a cada PHAse.
-Desenvolvido pela turma do segundo ano de Informática 2026 da Escola Estadual Professor Antônio Dantas.
+Desenvolvido por estudantes da turma do segundo ano de Informática 2025-2027 da Escola Estadual Professor Antônio Dantas.
