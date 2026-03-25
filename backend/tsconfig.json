@@ -1,0 +1,30 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    // Core (Node compatível)
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "target": "ES6",
+    "esModuleInterop": true,
+
+    // File Layout
+    "rootDir": "./src",      // pasta de origem do código
+    "outDir": "./dist",      // pasta de saída compilada
+
+    // Environment Settings
+    "types": ["node"],
+
+    // Other Outputs
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Recommended Options
+    "strict": true,
+    "skipLibCheck": true
+  }
+}
