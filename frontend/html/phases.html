@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHASE | Fases</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!--
+    phases.html — Hub de PHASES
+    - PHASE 1: todas as matérias do ENEM (expansível)
+    - PHASE 2: cursos técnicos com busca (expansível)
+    - PHASE 3: bloqueada (em breve)
+    - Todas as animações e estilos estão em style.css
+  -->
+
+  <div class="page-content">
+    <div class="phases-stack">
+
+      <!-- ════════════════════════════════════════════════
+           Hero
+      ════════════════════════════════════════════════ -->
+      <div class="hero-card">
+        <div class="phases-hero">
+          <div>
+            <span class="phase-title">PHASES</span>
+            <p class="hero-sub" style="margin-top:12px; max-width:520px;">
+              Escolha sua fase, escolha seu conteúdo. Cada PHASE é um novo nível na sua
+              jornada de aprendizado com a SAGE AI.
+            </p>
+          </div>
+          <i class="fa-solid fa-layer-group"
+             style="font-size:3.5rem; color:rgba(124,109,250,0.2);"></i>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════════
+           PHASE 1 — ENEM
+      ════════════════════════════════════════════════ -->
+      <div class="phase-block active open" id="phase1-block">
+
+        <div class="phase-header" onclick="togglePhase('phase1-block')">
+          <div class="phase-header-left">
+            <span class="phase-number">01</span>
+            <div class="phase-info">
+              <span class="phase-info-name">PHASE 1 — ENEM</span>
+              <span class="phase-info-desc">Todas as matérias do Ensino Médio e ENEM</span>
+            </div>
+          </div>
+          <div class="phase-header-right">
+            <span class="phase-count-badge">15 matérias</span>
+            <span class="phase-status status-active">Disponível</span>
+            <i class="fa-solid fa-chevron-down phase-chevron"></i>
+          </div>
+        </div>
+
+        <div class="phase-body">
+
+          <!-- Linguagens e Códigos -->
+          <div class="subject-area">
+            <p class="subject-area-title">
+              <i class="fa-solid fa-pen-nib"></i> Linguagens e Códigos
+            </p>
+            <div class="subject-grid">
+              <a href="./phases/phase1.html?s=portugues"      class="subject-card">
+                <span class="subject-card-name">Português</span>
+                <span class="subject-card-desc">Falar bem é só o começo!</span>
+              </a>
+              <a href="./phases/phase1.html?s=redacao"        class="subject-card">
+                <span class="subject-card-name">Redação</span>
+                <span class="subject-card-desc">Sua caneta pode mudar o mundo!</span>
+              </a>
+              <a href="./phases/phase1.html?s=literatura"     class="subject-card">
+                <span class="subject-card-name">Literatura</span>
+                <span class="subject-card-desc">Histórias que atravessam séculos!</span>
+              </a>
+              <a href="./phases/phase1.html?s=ingles"         class="subject-card">
+                <span class="subject-card-name">Inglês</span>
+                <span class="subject-card-desc">O mundo inteiro te espera!</span>
+              </a>
+              <a href="./phases/phase1.html?s=espanhol"       class="subject-card">
+                <span class="subject-card-name">Espanhol</span>
+                <span class="subject-card-desc">Otro idioma, otro mundo!</span>
+              </a>
+              <a href="./phases/phase1.html?s=artes"          class="subject-card">
+                <span class="subject-card-name">Artes</span>
+                <span class="subject-card-desc">Expressão além das palavras!</span>
+              </a>
+              <a href="./phases/phase1.html?s=educacaofisica" class="subject-card">
+                <span class="subject-card-name">Educação Física</span>
+                <span class="subject-card-desc">Corpo e mente em sincronia!</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Matemática -->
+          <div class="subject-area">
+            <p class="subject-area-title">
+              <i class="fa-solid fa-square-root-variable"></i> Matemática
+            </p>
+            <div class="subject-grid">
+              <a href="./phases/phase1.html?s=matematica" class="subject-card">
+                <span class="subject-card-name">Matemática</span>
+                <span class="subject-card-desc">Os números têm muito a te contar!</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Ciências da Natureza -->
+          <div class="subject-area">
+            <p class="subject-area-title">
+              <i class="fa-solid fa-flask"></i> Ciências da Natureza
+            </p>
+            <div class="subject-grid">
+              <a href="./phases/phase1.html?s=biologia" class="subject-card">
+                <span class="subject-card-name">Biologia</span>
+                <span class="subject-card-desc">A vida em toda a sua complexidade!</span>
+              </a>
+              <a href="./phases/phase1.html?s=quimica"  class="subject-card">
+                <span class="subject-card-name">Química</span>
+                <span class="subject-card-desc">Tudo ao seu redor é química!</span>
+              </a>
+              <a href="./phases/phase1.html?s=fisica"   class="subject-card">
+                <span class="subject-card-name">Física</span>
+                <span class="subject-card-desc">As leis que regem o universo!</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Ciências Humanas -->
+          <div class="subject-area">
+            <p class="subject-area-title">
+              <i class="fa-solid fa-landmark"></i> Ciências Humanas
+            </p>
+            <div class="subject-grid">
+              <a href="./phases/phase1.html?s=historia"   class="subject-card">
+                <span class="subject-card-name">História</span>
+                <span class="subject-card-desc">Entenda o passado, transforme o futuro!</span>
+              </a>
+              <a href="./phases/phase1.html?s=geografia"  class="subject-card">
+                <span class="subject-card-name">Geografia</span>
+                <span class="subject-card-desc">O mundo é maior do que imagina!</span>
+              </a>
+              <a href="./phases/phase1.html?s=filosofia"  class="subject-card">
+                <span class="subject-card-name">Filosofia</span>
+                <span class="subject-card-desc">Questione tudo, entenda o mundo!</span>
+              </a>
+              <a href="./phases/phase1.html?s=sociologia" class="subject-card">
+                <span class="subject-card-name">Sociologia</span>
+                <span class="subject-card-desc">A sociedade começa com você!</span>
+              </a>
+            </div>
+          </div>
+
+        </div><!-- /phase-body -->
+      </div>
+
+      <!-- ════════════════════════════════════════════════
+           PHASE 2 — Técnico
+      ════════════════════════════════════════════════ -->
+      <div class="phase-block active" id="phase2-block">
+
+        <div class="phase-header" onclick="togglePhase('phase2-block')">
+          <div class="phase-header-left">
+            <span class="phase-number">02</span>
+            <div class="phase-info">
+              <span class="phase-info-name">PHASE 2 — Técnico</span>
+              <span class="phase-info-desc">Cursos técnicos com conteúdo especializado</span>
+            </div>
+          </div>
+          <div class="phase-header-right">
+            <span class="phase-count-badge">18 cursos</span>
+            <span class="phase-status status-active">Disponível</span>
+            <i class="fa-solid fa-chevron-down phase-chevron"></i>
+          </div>
+        </div>
+
+        <div class="phase-body">
+          <div class="subject-area">
+
+            <!-- Busca de cursos -->
+            <div class="phase2-search">
+              <input type="text"
+                     id="p2-search"
+                     placeholder="Buscar curso..."
+                     oninput="searchCursos(this.value)">
+            </div>
+
+            <!-- Resultados de busca (aparece ao digitar) -->
+            <div class="subject-grid" id="p2-results" style="display:none;"></div>
+
+            <!-- Lista completa (oculta durante busca) -->
+            <div id="p2-all">
+
+              <!-- Em destaque -->
+              <p class="subject-area-title">
+                <i class="fa-solid fa-fire"></i> Em destaque
+              </p>
+              <div class="subject-grid">
+                <a href="./phases/phase2.html?s=informatica"   class="subject-card subject-card--highlight">
+                  <span class="subject-card-name">Informática</span>
+                  <span class="subject-card-desc">O futuro é digital e começa por você!</span>
+                </a>
+                <a href="./phases/phase2.html?s=enfermagem"    class="subject-card subject-card--highlight">
+                  <span class="subject-card-name">Enfermagem</span>
+                  <span class="subject-card-desc">Cuidar de vidas é uma arte!</span>
+                </a>
+                <a href="./phases/phase2.html?s=administracao" class="subject-card subject-card--highlight">
+                  <span class="subject-card-name">Administração</span>
+                  <span class="subject-card-desc">Gerencie, lidere, transforme!</span>
+                </a>
+                <a href="./phases/phase2.html?s=ia"            class="subject-card subject-card--highlight">
+                  <span class="subject-card-name">Int. Artificial</span>
+                  <span class="subject-card-desc">O campo que está mudando tudo!</span>
+                </a>
+              </div>
+
+              <!-- Tecnologia -->
+              <p class="subject-area-title--dim" style="margin-top:20px;">Tecnologia</p>
+              <div class="subject-grid">
+                <a href="./phases/phase2.html?s=informatica"        class="subject-card"><span class="subject-card-name">Informática</span>           <span class="subject-card-desc">O futuro é digital!</span></a>
+                <a href="./phases/phase2.html?s=desenvolvimentoweb" class="subject-card"><span class="subject-card-name">Dev. Web</span>               <span class="subject-card-desc">Crie sites do zero!</span></a>
+                <a href="./phases/phase2.html?s=redes"              class="subject-card"><span class="subject-card-name">Redes</span>                  <span class="subject-card-desc">Conecte o mundo!</span></a>
+                <a href="./phases/phase2.html?s=ciberseguranca"     class="subject-card"><span class="subject-card-name">Cibersegurança</span>         <span class="subject-card-desc">Proteja dados, proteja pessoas!</span></a>
+                <a href="./phases/phase2.html?s=ia"                 class="subject-card"><span class="subject-card-name">Int. Artificial</span>        <span class="subject-card-desc">O campo que está mudando tudo!</span></a>
+                <a href="./phases/phase2.html?s=design"             class="subject-card"><span class="subject-card-name">Design / UX</span>            <span class="subject-card-desc">Criatividade vira solução!</span></a>
+              </div>
+
+              <!-- Saúde -->
+              <p class="subject-area-title--dim" style="margin-top:20px;">Saúde</p>
+              <div class="subject-grid">
+                <a href="./phases/phase2.html?s=enfermagem"  class="subject-card"><span class="subject-card-name">Enfermagem</span> <span class="subject-card-desc">Cuidar de vidas é uma arte!</span></a>
+                <a href="./phases/phase2.html?s=farmacia"    class="subject-card"><span class="subject-card-name">Farmácia</span>   <span class="subject-card-desc">A ciência que cura!</span></a>
+                <a href="./phases/phase2.html?s=nutricao"    class="subject-card"><span class="subject-card-name">Nutrição</span>   <span class="subject-card-desc">Saúde começa no que come!</span></a>
+                <a href="./phases/phase2.html?s=radiologia"  class="subject-card"><span class="subject-card-name">Radiologia</span> <span class="subject-card-desc">Veja além dos olhos!</span></a>
+              </div>
+
+              <!-- Administração e Negócios -->
+              <p class="subject-area-title--dim" style="margin-top:20px;">Administração e Negócios</p>
+              <div class="subject-grid">
+                <a href="./phases/phase2.html?s=administracao" class="subject-card"><span class="subject-card-name">Administração</span> <span class="subject-card-desc">Gerencie, lidere, transforme!</span></a>
+                <a href="./phases/phase2.html?s=contabilidade"  class="subject-card"><span class="subject-card-name">Contabilidade</span> <span class="subject-card-desc">Números que contam histórias!</span></a>
+                <a href="./phases/phase2.html?s=logistica"      class="subject-card"><span class="subject-card-name">Logística</span>     <span class="subject-card-desc">O mundo se move por quem organiza!</span></a>
+                <a href="./phases/phase2.html?s=marketing"      class="subject-card"><span class="subject-card-name">Marketing</span>     <span class="subject-card-desc">Faça o mundo conhecer!</span></a>
+              </div>
+
+              <!-- Indústria -->
+              <p class="subject-area-title--dim" style="margin-top:20px;">Indústria</p>
+              <div class="subject-grid">
+                <a href="./phases/phase2.html?s=eletrotecnica" class="subject-card"><span class="subject-card-name">Eletrotécnica</span>        <span class="subject-card-desc">A energia que move tudo!</span></a>
+                <a href="./phases/phase2.html?s=mecanica"      class="subject-card"><span class="subject-card-name">Mecânica</span>              <span class="subject-card-desc">Máquinas precisam de quem entenda!</span></a>
+                <a href="./phases/phase2.html?s=automacao"     class="subject-card"><span class="subject-card-name">Automação Industrial</span>  <span class="subject-card-desc">O futuro da indústria!</span></a>
+                <a href="./phases/phase2.html?s=edificacoes"   class="subject-card"><span class="subject-card-name">Edificações</span>           <span class="subject-card-desc">Construa o mundo que quer!</span></a>
+              </div>
+            </div><!-- /p2-all -->
+
+          </div>
+        </div><!-- /phase-body -->
+      </div>
+
+      <!-- ════════════════════════════════════════════════
+           PHASE 3 — Livre (bloqueada)
+      ════════════════════════════════════════════════ -->
+      <div class="phase-block locked" id="phase3-block">
+        <div class="phase-header">
+          <div class="phase-header-left">
+            <span class="phase-number">03</span>
+            <div class="phase-info">
+              <span class="phase-info-name">PHASE 3 — Livre</span>
+              <span class="phase-info-desc">Qualquer tema via SAGE AI — em breve</span>
+            </div>
+          </div>
+          <span class="phase-status status-locked">
+            <i class="fa-solid fa-lock"></i> Bloqueada
+          </span>
+        </div>
+        <div class="phase-body" style="display:block;">
+          <div class="locked-body">
+            <i class="fa-solid fa-lock locked-icon"></i>
+            <p class="locked-msg">
+              Estude qualquer tema que quiser com ajuda da SAGE AI. Em breve.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navegação global -->
+  <script src="../js/nav.js"></script>
+
+  <script>
+    // ── Abre/fecha um bloco de PHASE ────────────────────────
+    function togglePhase(id) {
+      const block = document.getElementById(id);
+      if (block.classList.contains('locked')) return;
+      block.classList.toggle('open');
+    }
+
+    // ── Dataset de cursos técnicos para busca ───────────────
+    const todosCursos = [
+      { key: 'informatica',        name: 'Informática',            desc: 'O futuro é digital e começa por você!' },
+      { key: 'desenvolvimentoweb', name: 'Desenvolvimento Web',    desc: 'Crie sites e sistemas do zero!' },
+      { key: 'redes',              name: 'Redes de Computadores',  desc: 'Conecte o mundo, literalmente!' },
+      { key: 'ciberseguranca',     name: 'Cibersegurança',         desc: 'Proteja dados, proteja pessoas!' },
+      { key: 'ia',                 name: 'Inteligência Artificial', desc: 'O campo que está mudando tudo!' },
+      { key: 'design',             name: 'Design Gráfico / UX',    desc: 'Onde criatividade vira solução!' },
+      { key: 'enfermagem',         name: 'Enfermagem',             desc: 'Cuidar de vidas é uma arte!' },
+      { key: 'farmacia',           name: 'Farmácia',               desc: 'A ciência que cura está aqui!' },
+      { key: 'nutricao',           name: 'Nutrição',               desc: 'Saúde começa no que você come!' },
+      { key: 'radiologia',         name: 'Radiologia',             desc: 'Veja além do que os olhos enxergam!' },
+      { key: 'administracao',      name: 'Administração',          desc: 'Gerencie, lidere, transforme!' },
+      { key: 'contabilidade',      name: 'Contabilidade',          desc: 'Números que contam histórias!' },
+      { key: 'logistica',          name: 'Logística',              desc: 'O mundo se move por quem organiza!' },
+      { key: 'marketing',          name: 'Marketing',              desc: 'Faça o mundo conhecer o que é bom!' },
+      { key: 'eletrotecnica',      name: 'Eletrotécnica',          desc: 'A energia que move tudo!' },
+      { key: 'mecanica',           name: 'Mecânica',               desc: 'Máquinas precisam de quem as entenda!' },
+      { key: 'automacao',          name: 'Automação Industrial',   desc: 'O futuro da indústria é agora!' },
+      { key: 'edificacoes',        name: 'Edificações',            desc: 'Construa o mundo que você quer ver!' }
+    ];
+
+    /** Filtra cursos pelo termo de busca */
+    function searchCursos(q) {
+      const results = document.getElementById('p2-results');
+      const allDiv  = document.getElementById('p2-all');
+      q = q.trim().toLowerCase();
+
+      // Sem busca: mostra lista completa
+      if (!q) {
+        results.style.display = 'none';
+        allDiv.style.display  = 'block';
+        return;
+      }
+
+      const found = todosCursos.filter(c =>
+        c.name.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q)
+      );
+
+      allDiv.style.display = 'none';
+
+      if (!found.length) {
+        results.style.display = 'grid';
+        results.innerHTML = `
+          <p style="color:var(--text-muted); font-size:0.875rem; grid-column:1/-1;">
+            Nenhum curso encontrado para "<strong>${q}</strong>".
+          </p>`;
+        return;
+      }
+
+      results.style.display = 'grid';
+      results.innerHTML = found.map(c => `
+        <a href="./phases/phase2.html?s=${c.key}" class="subject-card">
+          <span class="subject-card-name">${c.name}</span>
+          <span class="subject-card-desc">${c.desc}</span>
+        </a>`).join('');
+    }
+
+    // Abre PHASE 2 diretamente se vier via hash #phase2
+    if (window.location.hash === '#phase2') togglePhase('phase2-block');
+  </script>
+
+</body>
+</html>

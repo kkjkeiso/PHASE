@@ -1,0 +1,132 @@
+{
+  "subject": "Português",
+  "description": "Falar bem é só o começo!",
+  "topics": [
+    {
+      "id": "classes-gramaticais",
+      "name": "Classes Gramaticais",
+      "summary": "Substantivo, adjetivo, verbo, advérbio e muito mais.",
+      "videos": [
+        {
+          "title": "Classes Gramaticais - Resumo Completo",
+          "channel": "Português com Letícia",
+          "url": "https://www.youtube.com/results?search_query=classes+gramaticais+enem",
+          "thumb": "https://i.ytimg.com/vi/placeholder/hqdefault.jpg"
+        },
+        {
+          "title": "Classes de Palavras para o ENEM",
+          "channel": "Descomplica",
+          "url": "https://www.youtube.com/results?search_query=classes+de+palavras+enem+descomplica",
+          "thumb": "https://i.ytimg.com/vi/placeholder2/hqdefault.jpg"
+        }
+      ],
+      "content": "<h3>O que são classes gramaticais?</h3><p>As <strong>classes gramaticais</strong> (ou classes de palavras) são categorias em que as palavras da língua portuguesa são agrupadas de acordo com suas características morfológicas, sintáticas e semânticas.</p><h3>As 10 classes gramaticais</h3><p>A gramática normativa da língua portuguesa reconhece <strong>10 classes de palavras</strong>:</p><ul><li><strong>Substantivo</strong> — nomeia seres, objetos, sentimentos e conceitos. Ex: <em>casa, amor, Brasil.</em></li><li><strong>Artigo</strong> — acompanha o substantivo, determinando-o. Ex: <em>o, a, um, uma.</em></li><li><strong>Adjetivo</strong> — caracteriza ou qualifica o substantivo. Ex: <em>bonito, inteligente, alto.</em></li><li><strong>Numeral</strong> — indica quantidade, ordem ou fração. Ex: <em>dois, primeiro, metade.</em></li><li><strong>Pronome</strong> — substitui ou acompanha o substantivo. Ex: <em>eu, meu, este, quem.</em></li><li><strong>Verbo</strong> — expressa ação, estado ou fenômeno. Ex: <em>correr, ser, chover.</em></li><li><strong>Advérbio</strong> — modifica verbo, adjetivo ou outro advérbio. Ex: <em>rapidamente, muito, aqui.</em></li><li><strong>Preposição</strong> — liga palavras indicando relação entre elas. Ex: <em>de, em, para, com.</em></li><li><strong>Conjunção</strong> — conecta orações ou termos. Ex: <em>e, mas, porque, embora.</em></li><li><strong>Interjeição</strong> — expressa emoção ou reação. Ex: <em>Oba!, Ai!, Ufa!</em></li></ul><h3>Dica para o ENEM</h3><p>O ENEM costuma cobrar a <strong>função sintática</strong> das palavras em contexto, não apenas a memorização das classes. Preste atenção ao papel que a palavra desempenha na frase.</p>",
+      "sources": ["Gramática da Língua Portuguesa — Celso Cunha", "PCN de Língua Portuguesa", "Portal do INEP"]
+    },
+    {
+      "id": "interpretacao-texto",
+      "name": "Interpretação de Texto",
+      "summary": "Leitura crítica, inferência e compreensão global.",
+      "videos": [
+        {
+          "title": "Interpretação de Texto para o ENEM",
+          "channel": "Me Salva!",
+          "url": "https://www.youtube.com/results?search_query=interpretacao+de+texto+enem",
+          "thumb": "https://i.ytimg.com/vi/placeholder3/hqdefault.jpg"
+        },
+        {
+          "title": "Como Interpretar Texto — Técnicas Avançadas",
+          "channel": "Estratégia Vestibulares",
+          "url": "https://www.youtube.com/results?search_query=como+interpretar+texto+enem+tecnicas",
+          "thumb": "https://i.ytimg.com/vi/placeholder4/hqdefault.jpg"
+        }
+      ],
+      "content": "<h3>O que é interpretação de texto?</h3><p>Interpretar um texto vai além de decodificar palavras. Envolve compreender a <strong>ideia central</strong>, identificar argumentos, inferir informações implícitas e perceber a <strong>intenção do autor</strong>.</p><h3>Estratégias de leitura</h3><ul><li><strong>Leitura global</strong> — leia o texto inteiro antes de responder qualquer questão para ter a visão do todo.</li><li><strong>Identificação do tema</strong> — sobre o que o texto fala? Qual é o assunto principal?</li><li><strong>Ideia central</strong> — qual é a tese ou argumento principal defendido?</li><li><strong>Intertextualidade</strong> — o texto faz referência a outros textos, épocas ou contextos?</li><li><strong>Inferência</strong> — o que pode ser concluído a partir do que está escrito, mas não foi dito diretamente?</li></ul><h3>Tipos textuais no ENEM</h3><p>O ENEM utiliza textos de tipologias variadas: <strong>narrativos, descritivos, dissertativos, argumentativos e injuntivos</strong>. Reconhecer o tipo textual ajuda a antecipar a organização das ideias.</p><h3>Dica de ouro</h3><p>Nas questões de interpretação, a resposta sempre está no texto. Cuidado com alternativas que parecem verdadeiras mas não têm respaldo no que foi escrito.</p>",
+      "sources": ["PCN de Língua Portuguesa", "Cadernos do ENEM — INEP", "Bakhtin — Estética da Criação Verbal"]
+    },
+    {
+      "id": "sintaxe",
+      "name": "Sintaxe",
+      "summary": "Sujeito, predicado, complementos e análise sintática.",
+      "videos": [
+        {
+          "title": "Sintaxe Completa para o ENEM",
+          "channel": "Professora Angela",
+          "url": "https://www.youtube.com/results?search_query=sintaxe+enem+sujeito+predicado",
+          "thumb": "https://i.ytimg.com/vi/placeholder5/hqdefault.jpg"
+        },
+        {
+          "title": "Análise Sintática do Zero",
+          "channel": "Curso Gratuito",
+          "url": "https://www.youtube.com/results?search_query=analise+sintatica+zero+enem",
+          "thumb": "https://i.ytimg.com/vi/placeholder6/hqdefault.jpg"
+        }
+      ],
+      "content": "<h3>Sintaxe: a estrutura da frase</h3><p>A sintaxe estuda a <strong>organização das palavras nas frases</strong> e as relações que elas estabelecem entre si. É um dos temas mais cobrados no ENEM.</p><h3>Termos essenciais da oração</h3><ul><li><strong>Sujeito</strong> — o ser sobre o qual se declara algo. Pode ser simples, composto, indeterminado ou oculto (desinencial).</li><li><strong>Predicado</strong> — o que se declara sobre o sujeito. Divide-se em verbal, nominal e verbo-nominal.</li></ul><h3>Termos integrantes</h3><ul><li><strong>Objeto direto</strong> — complementa o verbo sem preposição.</li><li><strong>Objeto indireto</strong> — complementa o verbo com preposição.</li><li><strong>Complemento nominal</strong> — complementa um nome (substantivo, adjetivo ou advérbio) com preposição.</li><li><strong>Agente da passiva</strong> — pratica a ação na voz passiva analítica.</li></ul><h3>Período composto</h3><p>Quando há duas ou mais orações, formamos o <strong>período composto</strong> — por coordenação (orações independentes) ou subordinação (uma oração depende da outra).</p>",
+      "sources": ["Gramática Normativa da Língua Portuguesa — Rocha Lima", "PCN de Língua Portuguesa"]
+    },
+    {
+      "id": "ortografia",
+      "name": "Ortografia e Acentuação",
+      "summary": "Regras do Novo Acordo Ortográfico e acentuação gráfica.",
+      "videos": [
+        {
+          "title": "Ortografia — Novo Acordo Ortográfico",
+          "channel": "Português Urgente",
+          "url": "https://www.youtube.com/results?search_query=ortografia+novo+acordo+ortografico+enem",
+          "thumb": "https://i.ytimg.com/vi/placeholder7/hqdefault.jpg"
+        },
+        {
+          "title": "Acentuação Gráfica — Regras e Exceções",
+          "channel": "Descomplica",
+          "url": "https://www.youtube.com/results?search_query=acentuacao+grafica+enem+descomplica",
+          "thumb": "https://i.ytimg.com/vi/placeholder8/hqdefault.jpg"
+        }
+      ],
+      "content": "<h3>Novo Acordo Ortográfico</h3><p>Em vigor desde 2009 no Brasil, o <strong>Novo Acordo Ortográfico</strong> unificou a escrita da língua portuguesa entre os países lusófonos. As principais mudanças afetam o uso do <strong>hífen, do trema e de certas letras</strong>.</p><h3>Principais regras de acentuação</h3><ul><li><strong>Oxítonas</strong> — acentuadas quando terminam em: a(s), e(s), o(s), em, ens. Ex: <em>café, cipó, também.</em></li><li><strong>Paroxítonas</strong> — acentuadas quando NÃO terminam nas terminações comuns. Ex: <em>fácil, tórax, bíceps.</em></li><li><strong>Proparoxítonas</strong> — sempre acentuadas. Ex: <em>médico, lâmpada, ônibus.</em></li></ul><h3>Hiato e ditongo</h3><p>Os <strong>hiatos</strong> formados por i ou u tônicos, quando não seguidos de m, n, nh ou l, recebem acento. Ex: <em>saúde, país, baú</em>. Após o Acordo de 2009, os <strong>ditongos abertos</strong> ei, oi em palavras paroxítonas perderam o acento. Ex: <em>ideia, heroico</em> (sem acento).</p>",
+      "sources": ["Vocabulário Ortográfico da Língua Portuguesa — VOLP", "Acordo Ortográfico de 1990"]
+    },
+    {
+      "id": "figuras-de-linguagem",
+      "name": "Figuras de Linguagem",
+      "summary": "Metáfora, metonímia, ironia, hipérbole e outras.",
+      "videos": [
+        {
+          "title": "Figuras de Linguagem — Todas em 20 min",
+          "channel": "Brasil Escola",
+          "url": "https://www.youtube.com/results?search_query=figuras+de+linguagem+enem+todas",
+          "thumb": "https://i.ytimg.com/vi/placeholder9/hqdefault.jpg"
+        },
+        {
+          "title": "Metáfora, Metonímia e Ironia para o ENEM",
+          "channel": "Me Salva!",
+          "url": "https://www.youtube.com/results?search_query=metafora+metonimia+ironia+enem",
+          "thumb": "https://i.ytimg.com/vi/placeholder10/hqdefault.jpg"
+        }
+      ],
+      "content": "<h3>O que são figuras de linguagem?</h3><p>As <strong>figuras de linguagem</strong> são recursos estilísticos usados para enriquecer a expressão, dar ênfase, criar imagens mentais ou transmitir emoções. São frequentemente cobradas no ENEM especialmente em questões sobre poesia e textos literários.</p><h3>Figuras de palavras (tropos)</h3><ul><li><strong>Metáfora</strong> — comparação implícita baseada em semelhança. Ex: <em>\"A vida é uma viagem.\"</em></li><li><strong>Metonímia</strong> — substituição de um termo por outro com relação de proximidade. Ex: <em>\"Ler Machado de Assis\"</em> (obra pelo autor).</li><li><strong>Sinestesia</strong> — mistura de sensações diferentes. Ex: <em>\"voz morna\"</em>.</li><li><strong>Catacrese</strong> — metáfora já consagrada pelo uso. Ex: <em>\"pé da mesa\", \"braço da poltrona\".</em></li></ul><h3>Figuras de pensamento</h3><ul><li><strong>Ironia</strong> — dizer o oposto do que se pensa com intenção crítica.</li><li><strong>Hipérbole</strong> — exagero para dar ênfase. Ex: <em>\"Já te disse um milhão de vezes.\"</em></li><li><strong>Eufemismo</strong> — suavização de uma ideia desagradável.</li><li><strong>Antítese</strong> — oposição de ideias. Ex: <em>\"Amor é fogo que arde sem se ver.\"</em></li></ul>",
+      "sources": ["Teoria da Literatura — Vítor Manuel Aguiar e Silva", "Português Literatura — William Cereja"]
+    },
+    {
+      "id": "tipos-de-texto",
+      "name": "Tipos e Gêneros Textuais",
+      "summary": "Narrativo, dissertativo, descritivo, injuntivo e poético.",
+      "videos": [
+        {
+          "title": "Tipos Textuais — Diferença entre Tipo e Gênero",
+          "channel": "Estratégia Vestibulares",
+          "url": "https://www.youtube.com/results?search_query=tipos+generos+textuais+enem+diferenca",
+          "thumb": "https://i.ytimg.com/vi/placeholder11/hqdefault.jpg"
+        },
+        {
+          "title": "Gêneros Textuais para o ENEM",
+          "channel": "Stoodi",
+          "url": "https://www.youtube.com/results?search_query=generos+textuais+enem+stoodi",
+          "thumb": "https://i.ytimg.com/vi/placeholder12/hqdefault.jpg"
+        }
+      ],
+      "content": "<h3>Tipo x Gênero textual</h3><p><strong>Tipo textual</strong> é uma categoria com características linguísticas definidas (narração, descrição, dissertação, injunção e predição). <strong>Gênero textual</strong> é uma forma concreta de texto que circula socialmente (notícia, conto, receita, editorial, carta).</p><h3>Os 5 tipos textuais</h3><ul><li><strong>Narração</strong> — relata eventos com personagens, tempo, espaço e conflito.</li><li><strong>Descrição</strong> — caracteriza seres, lugares ou objetos de forma detalhada.</li><li><strong>Dissertação</strong> — expõe e discute ideias de forma argumentativa ou expositiva.</li><li><strong>Injunção</strong> — instrui, orienta ou ordena. Ex: receitas, manuais.</li><li><strong>Predição</strong> — anuncia fatos futuros. Ex: horóscopo, previsão do tempo.</li></ul><h3>Gêneros mais cobrados no ENEM</h3><p>Editorial, crônica, tira, charge, poema, propaganda, artigo de opinião, carta do leitor, reportagem e entrevista. Cada gênero tem <strong>características específicas de estrutura, linguagem e contexto de circulação</strong>.</p>",
+      "sources": ["Marcuschi — Produção Textual, Análise de Gêneros e Compreensão", "PCN de Língua Portuguesa"]
+    }
+  ]
+}

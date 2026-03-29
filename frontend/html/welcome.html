@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHASE — Learn your way</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!--
+    welcome.html — Página inicial pública
+    - Redireciona para index.html se o usuário já estiver logado
+    - Exibe landing page completa com seções informativas
+  -->
+
+  <script>
+    // Redireciona usuário já autenticado diretamente para o dashboard
+    if (localStorage.getItem('usuarioLogado')) {
+      window.location.replace('./index.html');
+    }
+  </script>
+
+  <div class="welcome-page">
+
+    <!-- ════════════════════════════════════════════════════
+         HERO — Primeira dobra
+    ════════════════════════════════════════════════════ -->
+    <section class="welcome-hero-section">
+
+      <!-- Orbs decorativos de fundo -->
+      <div class="welcome-orb welcome-orb-1"></div>
+      <div class="welcome-orb welcome-orb-2"></div>
+
+      <!-- Tagline principal -->
+      <div class="welcome-hero">
+        <h1 class="welcome-tagline">
+          Aprenda do seu jeito<br>aprenda com <span>PHASE</span>
+        </h1>
+        <p class="welcome-desc">
+          Desenvolvido por estudantes, para estudantes
+        </p>
+      </div>
+
+      <!--
+        Feature cards — clicar rola para a seção correspondente
+        FIX: removido hover de "ficam mais brancos"; agora apenas sobe (translateY)
+      -->
+      <div class="welcome-features">
+        <div class="feature-card" onclick="document.getElementById('sec-sage').scrollIntoView({behavior:'smooth'})">
+          <span class="feature-icon"><i class="fa-solid fa-robot"></i></span>
+          <span class="feature-title">SAGE AI</span>
+          <p class="feature-desc">IA que ensina de forma clara, personalizada e eficiente.</p>
+          <span class="feature-arrow"><i class="fa-solid fa-arrow-down"></i> Saiba mais</span>
+        </div>
+
+        <div class="feature-card" onclick="document.getElementById('sec-learn').scrollIntoView({behavior:'smooth'})">
+          <span class="feature-icon"><i class="fa-solid fa-hourglass-half"></i></span>
+          <span class="feature-title">No seu tempo</span>
+          <p class="feature-desc">Sem prazo, sem pressão. Questões feitas para o seu nível.</p>
+          <span class="feature-arrow"><i class="fa-solid fa-arrow-down"></i> Saiba mais</span>
+        </div>
+
+        <div class="feature-card" onclick="document.getElementById('sec-ranking').scrollIntoView({behavior:'smooth'})">
+          <span class="feature-icon"><i class="fa-solid fa-ranking-star"></i></span>
+          <span class="feature-title">Ranking</span>
+          <p class="feature-desc">Acumule pontos, suba no ranking e mostre quem manda.</p>
+          <span class="feature-arrow"><i class="fa-solid fa-arrow-down"></i> Saiba mais</span>
+        </div>
+      </div>
+
+      <!-- CTAs principais -->
+      <div class="welcome-actions">
+        <a href="./register.html" class="btn btn-register">
+          <i class="fa-solid fa-user-plus"></i> Criar conta grátis
+        </a>
+        <a href="./login.html" class="btn btn-login">Já tenho conta</a>
+      </div>
+
+      <!-- Indicador de scroll -->
+      <div class="scroll-hint" onclick="document.getElementById('sec-sage').scrollIntoView({behavior:'smooth'})">
+        <i class="fa-solid fa-chevron-down"></i>
+        <span>ROLE PARA SABER MAIS</span>
+      </div>
+    </section>
+
+    <div class="welcome-divider"></div>
+
+    <!-- ════════════════════════════════════════════════════
+         SAGE AI
+    ════════════════════════════════════════════════════ -->
+    <section class="welcome-section" id="sec-sage">
+      <span class="welcome-section-tag">Inteligência Artificial</span>
+      <h2 class="welcome-section-title">Conheça a <span>SAGE AI</span></h2>
+
+      <!-- Caixa de destaque sobre RAG -->
+      <div class="welcome-rag-box">
+        <div class="welcome-section-body">
+          <p>A <strong>SAGE AI</strong> (Specialized AI for General Education) é o coração do PHASE.
+             Diferente de assistentes genéricos, a SAGE foi construída com foco em
+             <strong>aprendizado contextualizado</strong>.</p>
+          <p>Utilizando <strong>RAG (Retrieval-Augmented Generation)</strong>, a SAGE AI busca
+             informações em bases de conhecimento curadas, garantindo que cada resposta seja
+             precisa e alinhada ao conteúdo que você estuda.</p>
+          <p>Com <strong>machine learning adaptativo</strong>, ela ajusta o nível de complexidade
+             conforme você evolui.</p>
+        </div>
+      </div>
+
+      <!--
+        Grid de cards informativos
+        FIX: apenas escala no hover (sem brighten), conforme style.css .welcome-info-card
+      -->
+      <div class="welcome-info-grid">
+        <div class="welcome-info-card">
+          <div class="welcome-info-icon"><i class="fa-solid fa-database"></i></div>
+          <span class="welcome-info-title">Bases curadas</span>
+          <p class="welcome-info-desc">Conteúdo verificado e alinhado ao currículo do ENEM e cursos técnicos.</p>
+        </div>
+
+        <div class="welcome-info-card">
+          <div class="welcome-info-icon"><i class="fa-solid fa-brain"></i></div>
+          <span class="welcome-info-title">Aprendizado adaptativo</span>
+          <p class="welcome-info-desc">A IA se adapta ao seu ritmo, entregando conteúdo sempre no ponto certo.</p>
+        </div>
+
+        <div class="welcome-info-card">
+          <div class="welcome-info-icon"><i class="fa-solid fa-comments"></i></div>
+          <span class="welcome-info-title">Tire dúvidas em tempo real</span>
+          <p class="welcome-info-desc">Em cada conteúdo, pergunte diretamente à SAGE e receba respostas contextualizadas.</p>
+        </div>
+
+        <div class="welcome-info-card">
+          <div class="welcome-info-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <span class="welcome-info-title">Precisão garantida</span>
+          <p class="welcome-info-desc">RAG elimina "alucinações" comuns em IAs generativas — só conhecimento verificado.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="welcome-divider"></div>
+
+    <!-- ════════════════════════════════════════════════════
+         APRENDA NO SEU TEMPO
+    ════════════════════════════════════════════════════ -->
+    <section class="welcome-section" id="sec-learn">
+      <span class="welcome-section-tag">Metodologia</span>
+      <h2 class="welcome-section-title">Aprenda no <span>seu tempo</span></h2>
+
+      <div class="welcome-section-body">
+        <p>O PHASE foi criado com a premissa de que cada aluno tem um ritmo único de aprender.
+           Não existem prazos, provas obrigatórias ou pressão por desempenho.</p>
+        <p>Cada conteúdo é estruturado com <strong>aulas organizadas por tema</strong> e
+           questionários únicos gerados pela SAGE AI que testam o conhecimento de forma dinâmica.</p>
+      </div>
+
+      <div class="welcome-info-grid">
+        <div class="welcome-info-card">
+          <div class="welcome-info-icon"><i class="fa-solid fa-book-open"></i></div>
+          <span class="welcome-info-title">Aulas estruturadas</span>
+          <p class="welcome-info-desc">Cada tema tem texto, videoaulas e material de apoio organizado progressivamente.</p>
+        </div>
+
+        <div class="welcome-info-card">
+          <div class="welcome-info-icon"><i class="fa-solid fa-clipboard-question"></i></div>
+          <span class="welcome-info-title">Questionários dinâmicos</span>
+          <p class="welcome-info-desc">Gerados pela SAGE AI com base no conteúdo estudado — testam o que você aprendeu.</p>
+        </div>
+
+        <div class="welcome-info-card">
+          <div class="welcome-info-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <span class="welcome-info-title">PHASES progressivas</span>
+          <p class="welcome-info-desc">PHASE 1 (ENEM), PHASE 2 (Técnico) e PHASE 3 (livre com IA, em breve).</p>
+        </div>
+
+        <div class="welcome-info-card">
+          <div class="welcome-info-icon"><i class="fa-solid fa-repeat"></i></div>
+          <span class="welcome-info-title">Revisão ilimitada</span>
+          <p class="welcome-info-desc">Volte quantas vezes quiser. Sem limite de tentativas nem penalidade.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="welcome-divider"></div>
+
+    <!-- ════════════════════════════════════════════════════
+         RANKING / PONTOS
+    ════════════════════════════════════════════════════ -->
+    <section class="welcome-section" id="sec-ranking">
+      <span class="welcome-section-tag">Sistema de pontos</span>
+      <h2 class="welcome-section-title">Suba no <span>ranking</span></h2>
+
+      <div class="welcome-section-body">
+        <p><strong>Suba no ranking conforme evolui</strong>: cada questionário concluído,
+           resposta correta e aula finalizada gera pontos que consolidam sua posição no sistema.
+           Mais do que rapidez, a progressão valoriza consistência e dedicação contínua.</p>
+
+        <p>O desempenho desbloqueia <strong>recompensas progressivas, incluindo acesso a planos
+           avançados e descontos exclusivos</strong>. Estudantes com alto nível de dedicação e
+           consistência podem alcançar esses benefícios
+           <strong>sem necessidade de pagamento, com base no próprio mérito</strong>.</p>
+      </div>
+
+      <!-- Cards de pontuação -->
+      <div class="welcome-points-row">
+        <div class="welcome-points-card">
+          <div class="welcome-info-icon"><i class="fa-solid fa-check"></i></div>
+          <span class="welcome-points-num">+10</span>
+          <span class="welcome-points-label">por resposta certa</span>
+        </div>
+
+        <div class="welcome-points-card">
+          <div class="welcome-info-icon"><i class="fa-solid fa-trophy"></i></div>
+          <span class="welcome-points-num">+50</span>
+          <span class="welcome-points-label">questionário completo</span>
+        </div>
+
+        <div class="welcome-points-card">
+          <div class="welcome-info-icon"><i class="fa-solid fa-fire"></i></div>
+          <span class="welcome-points-num">+25</span>
+          <span class="welcome-points-label">sequência de acertos</span>
+        </div>
+
+        <div class="welcome-points-card">
+          <div class="welcome-info-icon"><i class="fa-solid fa-star"></i></div>
+          <span class="welcome-points-num">+100</span>
+          <span class="welcome-points-label">pontuação perfeita</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="welcome-divider"></div>
+
+    <!-- ════════════════════════════════════════════════════
+         CTA FINAL
+    ════════════════════════════════════════════════════ -->
+    <section class="welcome-cta-section">
+      <h2 class="welcome-cta-title">Pronto para começar?</h2>
+      <p class="welcome-cta-sub">Crie sua conta gratuita e comece a estudar com a SAGE AI ao seu lado.</p>
+
+      <div class="welcome-actions">
+        <a href="./register.html" class="btn btn-register">
+          <i class="fa-solid fa-user-plus"></i> Criar conta grátis
+        </a>
+        <a href="./login.html" class="btn btn-login">Já tenho conta</a>
+      </div>
+
+      <!-- Link discreto para planos -->
+      <a href="./plans.html" class="welcome-plans-link">
+        Ver planos e preços <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </section>
+
+  </div><!-- /welcome-page -->
+
+</body>
+</html>

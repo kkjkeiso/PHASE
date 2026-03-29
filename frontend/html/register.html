@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHASE | Cadastro</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!--
+    register.html — Cadastro de novos usuários
+    Fluxo em 2 etapas:
+      1. Coleta o e-mail
+      2. Coleta e valida a senha (mín. 8 caracteres, confirmação)
+  -->
+
+  <script>
+    // Redireciona usuário já autenticado
+    if (localStorage.getItem('usuarioLogado')) {
+      window.location.replace('./index.html');
+    }
+  </script>
+
+  <div class="page-content form-page">
+    <div class="form-box">
+      <h2>Crie sua conta</h2>
+
+      <!-- Etapa 1: e-mail -->
+      <form id="register-step1">
+        <div class="form-fields">
+          <input id="reg-email" type="email" placeholder="E-mail" required>
+          <span class="form-error" id="err-email"></span>
+          <button type="submit" class="btn btn-register">Próximo</button>
+        </div>
+      </form>
+
+      <!-- Etapa 2: senha (oculta inicialmente) -->
+      <form id="register-step2" style="display:none;">
+        <div class="form-fields">
+          <input id="reg-password"  type="password" placeholder="Senha (mín. 8 caracteres)" required>
+          <input id="reg-password2" type="password" placeholder="Confirme a senha" required>
+          <span class="form-error" id="err-password"></span>
+          <button type="submit" class="btn btn-register">Cadastrar</button>
+        </div>
+      </form>
+
+      <p class="form-footer">
+        Já possui uma conta? <a href="./login.html">Login</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Navegação global (top bar de auth) -->
+  <script src="../js/nav.js"></script>
+
+  <script>
+    const step1      = document.getElementById('register-step1');
+    const step2      = document.getElementById('register-step2');
+    const emailInput = document.getElementById('reg-email');
+    const errEmail   = document.getElementById('err-email');
+    const errPass    = document.getElementById('err-password');
+
+    /** Exibe mensagem de erro num elemento */
+    function showError(el, msg) {
+      el.textContent = msg;
+      el.classList.add('visible');
+    }
+
+    /** Limpa mensagem de erro */
+    function clearError(el) {
+      el.textContent = '';
+      el.classList.remove('visible');
+    }
+
+    // ── Etapa 1: coleta e-mail ───────────────────────────────
+    step1.addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearError(errEmail);
+
+      if (!emailInput.value.trim()) {
+        showError(errEmail, 'Informe seu e-mail.');
+        return;
+      }
+
+      step1.style.display = 'none';
+      step2.style.display = 'block';
+      document.getElementById('reg-password').focus();
+    });
+
+    // ── Etapa 2: valida e envia cadastro ────────────────────
+    step2.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      clearError(errPass);
+
+      const p1 = document.getElementById('reg-password').value;
+      const p2 = document.getElementById('reg-password2').value;
+
+      if (p1.length < 8) {
+        showError(errPass, 'A senha deve ter pelo menos 8 caracteres.');
+        return;
+      }
+      if (p1 !== p2) {
+        showError(errPass, 'As senhas não coincidem.');
+        return;
+      }
+
+      const email    = emailInput.value.trim();
+      const username = email.split('@')[0]; // username derivado do e-mail
+
+      try {
+        const res  = await fetch('http://localhost:3000/register', {
+          method:      'POST',
+          headers:     { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body:        JSON.stringify({ username, email, password: p1 }),
+        });
+        const data = await res.json();
+        if (!res.ok) { showError(errPass, data.error); return; }
+
+        // Persiste sessão e redireciona ao dashboard
+        localStorage.setItem('usuarioLogado', username);
+        window.location.href = './index.html';
+
+      } catch {
+        showError(errPass, 'Erro ao conectar com o servidor.');
+      }
+    });
+  </script>
+
+</body>
+</html>

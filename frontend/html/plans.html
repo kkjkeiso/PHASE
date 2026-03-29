@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHASE | Planos</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!--
+    plans.html — Planos e preços do PHASE
+    - Toggle mensal / anual (20% de desconto)
+    - Grid de 4 planos: Free, Basic, Pro, Ultra
+    - Tabela comparativa detalhada
+    - FAQ expansível
+    Todos os estilos estão em style.css (seção 18).
+  -->
+
+  <div class="page-content">
+    <div class="plans-stack">
+
+      <!-- ════════════════════════════════════════════════
+           Hero
+      ════════════════════════════════════════════════ -->
+      <div class="hero-card">
+        <div class="plans-hero">
+          <div>
+            <p style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted); margin-bottom:8px;">
+              Planos e Preços
+            </p>
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:1.8rem; font-weight:700;">
+              Escolha o seu plano
+            </span>
+            <p class="hero-sub" style="margin-top:12px; max-width:480px;">
+              Comece de graça e evolua conforme sua necessidade.
+              Estudantes dedicados podem conquistar planos avançados
+              <strong style="color:var(--text);">sem pagar</strong>, apenas com mérito.
+            </p>
+          </div>
+
+          <!-- Toggle mensal / anual -->
+          <div class="billing-toggle">
+            <span id="lbl-monthly" class="active">Mensal</span>
+            <label class="billing-switch">
+              <input type="checkbox" id="billing-toggle-input" onchange="toggleBilling()">
+              <div class="billing-switch-track"></div>
+              <div class="billing-switch-thumb"></div>
+            </label>
+            <span id="lbl-annual">Anual</span>
+            <span class="billing-save-badge">−20%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════════
+           Grid de planos
+      ════════════════════════════════════════════════ -->
+      <div class="card" style="padding:32px;">
+        <div class="plans-grid">
+
+          <!-- Free -->
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-icon free"><i class="fa-solid fa-seedling"></i></div>
+              <span class="plan-name">Free</span>
+              <p class="plan-desc">Para quem está começando — sem cartão necessário.</p>
+            </div>
+            <div class="plan-price-block">
+              <div class="plan-price">
+                <span class="price-currency">R$</span>0<span class="price-period">/mês</span>
+              </div>
+              <div class="plan-price-annual">&nbsp;</div>
+            </div>
+            <div class="plan-divider"></div>
+            <div class="plan-features">
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>Acesso a todas as matérias</span></div>
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>5 perguntas/dia à SAGE AI</span></div>
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>3 questionários por dia</span></div>
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>Ranking e pontuação</span></div>
+              <div class="plan-feature excluded"><i class="fa-solid fa-xmark"></i><span>Histórico de estudo</span></div>
+              <div class="plan-feature excluded"><i class="fa-solid fa-xmark"></i><span>Modelo de IA avançado</span></div>
+              <div class="plan-feature excluded"><i class="fa-solid fa-xmark"></i><span>Modo offline</span></div>
+            </div>
+            <a href="./register.html" class="plan-cta btn-login">Começar grátis</a>
+          </div>
+
+          <!-- Basic -->
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-icon basic"><i class="fa-solid fa-bolt"></i></div>
+              <span class="plan-name">Basic</span>
+              <p class="plan-desc">Mais perguntas, questionários ilimitados e histórico completo.</p>
+            </div>
+            <div class="plan-price-block">
+              <div class="plan-price" id="price-basic">
+                <span class="price-currency">R$</span><span id="val-basic">19</span><span class="price-period">/mês</span>
+              </div>
+              <div class="plan-price-annual" id="annual-basic">&nbsp;</div>
+            </div>
+            <div class="plan-divider"></div>
+            <div class="plan-features">
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>Acesso a todas as matérias</span></div>
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>30 perguntas/dia à SAGE AI</span></div>
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>Questionários ilimitados</span></div>
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>Ranking e pontuação</span></div>
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>Histórico de estudo</span></div>
+              <div class="plan-feature excluded"><i class="fa-solid fa-xmark"></i><span>Modelo de IA avançado</span></div>
+              <div class="plan-feature excluded"><i class="fa-solid fa-xmark"></i><span>Modo offline</span></div>
+            </div>
+            <a href="./register.html" class="plan-cta btn-register">Assinar Basic</a>
+          </div>
+
+          <!-- Pro (destaque) -->
+          <div class="plan-card featured">
+            <div class="plan-badge">Mais popular</div>
+            <div class="plan-header">
+              <div class="plan-icon pro"><i class="fa-solid fa-star"></i></div>
+              <span class="plan-name">Pro</span>
+              <p class="plan-desc">Modelo de IA melhorado e perguntas praticamente ilimitadas.</p>
+            </div>
+            <div class="plan-price-block">
+              <div class="plan-price" id="price-pro">
+                <span class="price-currency">R$</span><span id="val-pro">39</span><span class="price-period">/mês</span>
+              </div>
+              <div class="plan-price-annual" id="annual-pro">&nbsp;</div>
+            </div>
+            <div class="plan-divider"></div>
+            <div class="plan-features">
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>Acesso a todas as matérias</span></div>
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>Perguntas ilimitadas à SAGE AI</span></div>
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>Questionários ilimitados</span></div>
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>Modelo de IA avançado (SAGE Pro)</span></div>
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>Histórico e análise de desempenho</span></div>
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>Prioridade no suporte</span></div>
+              <div class="plan-feature excluded"><i class="fa-solid fa-xmark"></i><span>Modo offline</span></div>
+            </div>
+            <a href="./register.html" class="plan-cta btn-register">Assinar Pro</a>
+          </div>
+
+          <!-- Ultra -->
+          <div class="plan-card">
+            <div class="plan-header">
+              <div class="plan-icon ultra"><i class="fa-solid fa-crown"></i></div>
+              <span class="plan-name">Ultra</span>
+              <p class="plan-desc">Tudo do Pro, mais modo offline e sem depender de internet.</p>
+            </div>
+            <div class="plan-price-block">
+              <div class="plan-price" id="price-ultra">
+                <span class="price-currency">R$</span><span id="val-ultra">69</span><span class="price-period">/mês</span>
+              </div>
+              <div class="plan-price-annual" id="annual-ultra">&nbsp;</div>
+            </div>
+            <div class="plan-divider"></div>
+            <div class="plan-features">
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>Tudo do plano Pro</span></div>
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>Modo offline — estude sem internet</span></div>
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>Modelo SAGE Ultra local</span></div>
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>Download de conteúdo para offline</span></div>
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>Acesso antecipado a novidades</span></div>
+              <div class="plan-feature included"><i class="fa-solid fa-check"></i><span>Suporte prioritário VIP</span></div>
+            </div>
+            <a href="./register.html" class="plan-cta btn-ultra">Assinar Ultra</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════════
+           Tabela comparativa
+      ════════════════════════════════════════════════ -->
+      <div class="card plans-compare">
+        <p class="compare-title">Comparação detalhada</p>
+        <div style="overflow-x:auto;">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th style="width:40%">Recurso</th>
+                <th>Free</th><th>Basic</th><th>Pro</th><th>Ultra</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="compare-feature-name">Perguntas à SAGE AI</div><div class="compare-feature-desc">por dia</div></td>
+                <td>5</td><td>30</td><td>Ilimitado</td><td>Ilimitado</td>
+              </tr>
+              <tr>
+                <td><div class="compare-feature-name">Questionários</div><div class="compare-feature-desc">por dia</div></td>
+                <td>3</td><td>Ilimitado</td><td>Ilimitado</td><td>Ilimitado</td>
+              </tr>
+              <tr>
+                <td><div class="compare-feature-name">Modelo de IA</div></td>
+                <td>SAGE Base</td><td>SAGE Base</td><td>SAGE Pro</td><td>SAGE Ultra</td>
+              </tr>
+              <tr>
+                <td><div class="compare-feature-name">Histórico de estudo</div></td>
+                <td><i class="fa-solid fa-xmark compare-x"></i></td>
+                <td><i class="fa-solid fa-check compare-check"></i></td>
+                <td><i class="fa-solid fa-check compare-check"></i></td>
+                <td><i class="fa-solid fa-check compare-check"></i></td>
+              </tr>
+              <tr>
+                <td><div class="compare-feature-name">Análise de desempenho</div></td>
+                <td><i class="fa-solid fa-xmark compare-x"></i></td>
+                <td><i class="fa-solid fa-xmark compare-x"></i></td>
+                <td><i class="fa-solid fa-check compare-check"></i></td>
+                <td><i class="fa-solid fa-check compare-check"></i></td>
+              </tr>
+              <tr>
+                <td><div class="compare-feature-name">Modo offline</div></td>
+                <td><i class="fa-solid fa-xmark compare-x"></i></td>
+                <td><i class="fa-solid fa-xmark compare-x"></i></td>
+                <td><i class="fa-solid fa-xmark compare-x"></i></td>
+                <td><i class="fa-solid fa-check compare-check"></i></td>
+              </tr>
+              <tr>
+                <td><div class="compare-feature-name">Suporte prioritário</div></td>
+                <td><i class="fa-solid fa-xmark compare-x"></i></td>
+                <td><i class="fa-solid fa-xmark compare-x"></i></td>
+                <td><i class="fa-solid fa-check compare-check"></i></td>
+                <td>VIP</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════════
+           FAQ
+      ════════════════════════════════════════════════ -->
+      <div class="card plans-faq">
+        <p class="faq-title">Perguntas frequentes</p>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">Posso cancelar a qualquer momento? <i class="fa-solid fa-chevron-down"></i></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Sim. Não há fidelidade ou multa por cancelamento. Ao cancelar, seu acesso continua até o fim do período já pago.</div></div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">O que é o modo offline do plano Ultra? <i class="fa-solid fa-chevron-down"></i></div>
+          <div class="faq-answer"><div class="faq-answer-inner">O Ultra inclui um modelo local da SAGE AI que roda direto no seu dispositivo, sem precisar de conexão à internet. Você pode baixar conteúdo e questionários para estudar em qualquer lugar.</div></div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">Qual a diferença entre SAGE Base, Pro e Ultra? <i class="fa-solid fa-chevron-down"></i></div>
+          <div class="faq-answer"><div class="faq-answer-inner">O SAGE Base é o modelo padrão — preciso e eficiente para o dia a dia. O SAGE Pro tem capacidade de raciocínio expandida e respostas mais detalhadas. O SAGE Ultra é o modelo completo, otimizado para rodar offline com máxima precisão.</div></div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">O plano Free tem limite de tempo? <i class="fa-solid fa-chevron-down"></i></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Não. O plano Free é gratuito para sempre, sem período de trial. Você pode usar o PHASE sem precisar inserir cartão ou informação de pagamento.</div></div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">Como funciona o desconto anual? <i class="fa-solid fa-chevron-down"></i></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Ao escolher a cobrança anual, você paga de uma só vez com 20% de desconto sobre o valor mensal. O acesso é garantido por 12 meses completos.</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navegação global -->
+  <script src="../js/nav.js"></script>
+
+  <script>
+    const prices = {
+      basic: { monthly: 19, annual: 15 },
+      pro:   { monthly: 39, annual: 31 },
+      ultra: { monthly: 69, annual: 55 },
+    };
+
+    let isAnnual = false;
+
+    /** Alterna preços entre mensal e anual */
+    function toggleBilling() {
+      isAnnual = document.getElementById('billing-toggle-input').checked;
+      document.getElementById('lbl-monthly').classList.toggle('active', !isAnnual);
+      document.getElementById('lbl-annual').classList.toggle('active',   isAnnual);
+
+      for (const [key, p] of Object.entries(prices)) {
+        const val = document.getElementById('val-'    + key);
+        const ann = document.getElementById('annual-' + key);
+        if (isAnnual) {
+          val.textContent = p.annual;
+          ann.textContent = 'R$' + (p.annual * 12) + '/ano — economize R$' + ((p.monthly - p.annual) * 12);
+        } else {
+          val.textContent = p.monthly;
+          ann.textContent = '';
+        }
+      }
+    }
+
+    /** Abre/fecha um item do FAQ */
+    function toggleFaq(item) {
+      item.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

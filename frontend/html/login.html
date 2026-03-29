@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHASE | Login</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!--
+    login.html — Autenticação de usuários
+    Fluxo em 2 etapas:
+      1. Verifica se o e-mail existe no backend
+      2. Valida a senha e cria a sessão
+  -->
+
+  <script>
+    // Redireciona usuário já autenticado
+    if (localStorage.getItem('usuarioLogado')) {
+      window.location.replace('./index.html');
+    }
+  </script>
+
+  <div class="page-content form-page">
+    <div class="form-box">
+      <h2>Faça seu login</h2>
+
+      <!-- Etapa 1: e-mail -->
+      <form id="login-step1">
+        <div class="form-fields">
+          <input id="login-email" type="email" placeholder="E-mail" required>
+          <span class="form-error" id="err-email"></span>
+          <button type="submit" class="btn btn-register">Próximo</button>
+        </div>
+      </form>
+
+      <!-- Etapa 2: senha (oculta inicialmente) -->
+      <form id="login-step2" style="display:none;">
+        <div class="form-fields">
+          <input id="password" type="password" placeholder="Senha" required>
+          <span class="form-error" id="err-password"></span>
+          <button type="submit" class="btn btn-register">Entrar</button>
+        </div>
+      </form>
+
+      <p class="form-footer">
+        Novo aqui? <a href="./register.html">Cadastrar-se</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Navegação global (top bar de auth) -->
+  <script src="../js/nav.js"></script>
+
+  <script>
+    const step1      = document.getElementById('login-step1');
+    const step2      = document.getElementById('login-step2');
+    const emailInput = document.getElementById('login-email');
+    const errEmail   = document.getElementById('err-email');
+    const errPass    = document.getElementById('err-password');
+
+    /** Exibe mensagem de erro num elemento */
+    function showError(el, msg) {
+      el.textContent = msg;
+      el.classList.add('visible');
+    }
+
+    /** Limpa mensagem de erro */
+    function clearError(el) {
+      el.textContent = '';
+      el.classList.remove('visible');
+    }
+
+    // ── Etapa 1: verifica se e-mail existe no backend ───────
+    step1.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      clearError(errEmail);
+
+      const email = emailInput.value.trim();
+      if (!email) {
+        showError(errEmail, 'Informe seu e-mail.');
+        return;
+      }
+
+      try {
+        const res  = await fetch('http://localhost:3000/check-email', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({ email }),
+        });
+        const data = await res.json();
+        if (!res.ok) { showError(errEmail, data.error); return; }
+
+        // Avança para a etapa de senha
+        step1.style.display = 'none';
+        step2.style.display = 'block';
+        document.getElementById('password').focus();
+
+      } catch {
+        showError(errEmail, 'Erro ao conectar com o servidor.');
+      }
+    });
+
+    // ── Etapa 2: valida senha e cria sessão ─────────────────
+    step2.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      clearError(errPass);
+
+      const email    = emailInput.value.trim();
+      const password = document.getElementById('password').value;
+
+      try {
+        const res  = await fetch('http://localhost:3000/login', {
+          method:      'POST',
+          headers:     { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body:        JSON.stringify({ email, password }),
+        });
+        const data = await res.json();
+        if (!res.ok) { showError(errPass, data.error); return; }
+
+        // Persiste sessão e redireciona ao dashboard
+        localStorage.setItem('usuarioLogado', data.user.username);
+        window.location.href = './index.html';
+
+      } catch {
+        showError(errPass, 'Erro ao conectar com o servidor.');
+      }
+    });
+  </script>
+
+</body>
+</html>

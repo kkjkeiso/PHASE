@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conta • PHASE</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!--
+    account.html — Página de gerenciamento de conta
+    - Redireciona para welcome.html se não estiver logado
+    - Exibe perfil, stats, dados da conta e ações de sessão
+  -->
+
+  <script>
+    // Protege a rota: requer autenticação
+    if (!localStorage.getItem('usuarioLogado')) {
+      window.location.replace('./welcome.html');
+    }
+  </script>
+
+  <div class="page-content">
+    <div class="account-layout">
+
+      <!-- ════════════════════════════════════════════════
+           Card de Perfil
+      ════════════════════════════════════════════════ -->
+      <div class="account-profile-card">
+
+        <!-- Avatar com inicial do nome -->
+        <div class="account-avatar" id="profile-avatar">?</div>
+
+        <div class="account-profile-info">
+          <!-- Nome de usuário -->
+          <p style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted);">
+            Seu perfil
+          </p>
+          <h1 class="account-username" id="profile-username">—</h1>
+          <p class="account-email" id="profile-email">—</p>
+
+          <!-- Stats de desempenho -->
+          <div class="account-stats-row">
+            <div class="index-stat">
+              <span class="index-stat-num" id="stat-pts">0</span>
+              <span class="index-stat-label">Pontos</span>
+            </div>
+            <div class="index-stat">
+              <span class="index-stat-num" id="stat-quiz">0</span>
+              <span class="index-stat-label">Questionários</span>
+            </div>
+            <div class="index-stat">
+              <span class="index-stat-num">1</span>
+              <span class="index-stat-label">PHASE ativa</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ════════════════════════════════════════════════
+           Grid de cards informativos
+      ════════════════════════════════════════════════ -->
+      <div class="account-cards-grid">
+
+        <!-- Informações pessoais -->
+        <div class="account-info-card">
+          <p class="account-info-card-title">
+            <i class="fa-solid fa-circle-info"></i> Informações
+          </p>
+
+          <div class="account-info-row">
+            <span class="account-info-label">Usuário</span>
+            <span class="account-info-value" id="info-username">—</span>
+          </div>
+
+          <div class="account-info-row">
+            <span class="account-info-label">E-mail</span>
+            <span class="account-info-value" id="info-email">—</span>
+          </div>
+
+          <div class="account-info-row">
+            <span class="account-info-label">Plano atual</span>
+            <span class="account-info-value">Free</span>
+          </div>
+        </div>
+
+        <!-- Segurança -->
+        <div class="account-info-card">
+          <p class="account-info-card-title">
+            <i class="fa-solid fa-shield-halved"></i> Segurança
+          </p>
+
+          <div class="account-info-row">
+            <span class="account-info-label">Senha</span>
+            <span class="security-indicator">
+              <i class="fa-solid fa-lock"></i> Protegida
+            </span>
+          </div>
+
+          <div class="account-info-row">
+            <span class="account-info-label">Sessão</span>
+            <span class="security-indicator">
+              <i class="fa-solid fa-circle-check"></i> Ativa
+            </span>
+          </div>
+
+          <div class="account-info-row">
+            <span class="account-info-label">Criptografia</span>
+            <span class="account-info-value">bcrypt</span>
+          </div>
+        </div>
+
+        <!-- Progresso de estudo -->
+        <div class="account-info-card">
+          <p class="account-info-card-title">
+            <i class="fa-solid fa-chart-line"></i> Progresso
+          </p>
+
+          <div class="account-info-row">
+            <span class="account-info-label">PHASE 1 — ENEM</span>
+            <span class="account-info-value" id="progress-phase1">—</span>
+          </div>
+
+          <div class="account-info-row">
+            <span class="account-info-label">PHASE 2 — Técnico</span>
+            <span style="color:var(--text-muted); font-weight:600; font-size:0.85rem;">Indisponível</span>
+          </div>
+
+          <div class="account-info-row">
+            <span class="account-info-label">PHASE 3 — Livre</span>
+            <span style="color:var(--text-muted); font-weight:600; font-size:0.85rem;">Em breve</span>
+          </div>
+        </div>
+
+        <!-- Atalhos rápidos -->
+        <div class="account-info-card">
+          <p class="account-info-card-title">
+            <i class="fa-solid fa-bolt"></i> Atalhos
+          </p>
+
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:4px;">
+            <a href="./phases.html" class="btn btn-login" style="justify-content:center;">
+              <i class="fa-solid fa-layer-group"></i> Ver PHASES
+            </a>
+            <a href="./scoreboard.html" class="btn btn-login" style="justify-content:center;">
+              <i class="fa-solid fa-ranking-star"></i> Ranking
+            </a>
+            <a href="./plans.html" class="btn btn-register" style="justify-content:center;">
+              <i class="fa-solid fa-crown"></i> Ver planos
+            </a>
+          </div>
+        </div>
+
+        <!-- Ações da conta (largura total) -->
+        <div class="account-actions-card">
+          <p class="account-actions-title">Ações da conta</p>
+          <div class="account-actions-row">
+            <p class="hero-sub" style="max-width:520px; text-align:left;">
+              Ao sair, sua sessão será encerrada neste dispositivo.
+              Seus pontos e progresso permanecem salvos.
+            </p>
+            <button class="btn btn-logout" id="logout-btn">
+              <i class="fa-solid fa-right-from-bracket"></i> Sair da conta
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Navegação global -->
+  <script src="../js/nav.js"></script>
+
+  <script>
+    const API = 'http://localhost:3000';
+
+    // ── Carrega dados do usuário via API ────────────────────
+    async function loadUser() {
+      try {
+        const res = await fetch(API + '/me', { credentials: 'include' });
+
+        if (res.status !== 200) {
+          // Sessão inválida: limpa e redireciona
+          localStorage.removeItem('usuarioLogado');
+          window.location.replace('./welcome.html');
+          return;
+        }
+
+        const user = await res.json();
+
+        // Preenche campos da página
+        document.getElementById('profile-avatar').textContent   = user.username.charAt(0).toUpperCase();
+        document.getElementById('profile-username').textContent = user.username;
+        document.getElementById('profile-email').textContent    = user.email;
+        document.getElementById('info-username').textContent    = user.username;
+        document.getElementById('info-email').textContent       = user.email;
+
+        // Mantém localStorage sincronizado
+        localStorage.setItem('usuarioLogado', user.username);
+
+      } catch (err) {
+        console.error('Erro ao carregar usuário:', err);
+      }
+    }
+
+    // ── Stats locais (fase 1) ───────────────────────────────
+    const pts   = parseInt(localStorage.getItem('phase1_points')  || '0');
+    const quiz  = parseInt(localStorage.getItem('phase1_quizzes') || '0');
+
+    document.getElementById('stat-pts').textContent  = pts;
+    document.getElementById('stat-quiz').textContent = quiz;
+
+    // Progresso resumido
+    const progressEl = document.getElementById('progress-phase1');
+    if (progressEl) {
+      progressEl.textContent = (pts > 0 || quiz > 0)
+        ? pts + ' pts · ' + quiz + ' quest.'
+        : 'Não iniciado';
+    }
+
+    // ── Logout ──────────────────────────────────────────────
+    document.getElementById('logout-btn').addEventListener('click', async () => {
+      try {
+        await fetch(API + '/logout', { method: 'POST', credentials: 'include' });
+      } catch (_) { /* ignora erro de rede */ }
+      localStorage.removeItem('usuarioLogado');
+      localStorage.removeItem('token');
+      window.location.replace('./welcome.html');
+    });
+
+    // Inicia carregamento
+    loadUser();
+  </script>
+
+</body>
+</html>

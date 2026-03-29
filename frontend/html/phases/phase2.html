@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHASE 2</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!--
+    phases/phase2.html — Ponto de entrada para os cursos técnicos
+
+    Funciona igual ao phase1.html: lê ?s= da URL, define
+    window.PHASE_CONFIG e deixa o phase.js montar a página.
+
+    Exemplos de uso:
+      phase2.html?s=informatica
+      phase2.html?s=enfermagem
+
+    Se o parâmetro for inválido ou ausente, redireciona para phases.html.
+  -->
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const s      = params.get('s') || '';
+
+    // ── Mapa de cursos técnicos ──────────────────────────────
+    const cursos = {
+
+      // Tecnologia
+      informatica:        { subject: 'Informática',              description: 'O futuro é digital e começa por você!' },
+      desenvolvimentoweb: { subject: 'Desenvolvimento Web',      description: 'Crie sites e sistemas do zero!' },
+      redes:              { subject: 'Redes de Computadores',    description: 'Conecte o mundo, literalmente!' },
+      ciberseguranca:     { subject: 'Cibersegurança',           description: 'Proteja dados, proteja pessoas!' },
+      ia:                 { subject: 'Inteligência Artificial',  description: 'O campo que está mudando tudo!' },
+      design:             { subject: 'Design Gráfico / UX',      description: 'Onde criatividade vira solução!' },
+
+      // Saúde
+      enfermagem:         { subject: 'Enfermagem',               description: 'Cuidar de vidas é uma arte!' },
+      farmacia:           { subject: 'Farmácia',                 description: 'A ciência que cura está aqui!' },
+      nutricao:           { subject: 'Nutrição',                 description: 'Saúde começa no que você come!' },
+      radiologia:         { subject: 'Radiologia',               description: 'Veja além do que os olhos enxergam!' },
+
+      // Administração e Negócios
+      administracao:      { subject: 'Administração',            description: 'Gerencie, lidere, transforme!' },
+      contabilidade:      { subject: 'Contabilidade',            description: 'Números que contam histórias!' },
+      logistica:          { subject: 'Logística',                description: 'O mundo se move por quem organiza!' },
+      marketing:          { subject: 'Marketing',                description: 'Faça o mundo conhecer o que é bom!' },
+
+      // Indústria
+      eletrotecnica:      { subject: 'Eletrotécnica',            description: 'A energia que move tudo passa por você!' },
+      mecanica:           { subject: 'Mecânica',                 description: 'Máquinas precisam de quem as entenda!' },
+      automacao:          { subject: 'Automação Industrial',     description: 'O futuro da indústria é agora!' },
+      edificacoes:        { subject: 'Edificações',              description: 'Construa o mundo que você quer ver!' }
+    };
+
+    // Redireciona se o curso não existir; caso contrário configura e atualiza o título
+    if (!cursos[s]) {
+      window.location.href = '../phases.html';
+    } else {
+      window.PHASE_CONFIG = cursos[s];
+      document.title      = 'PHASE | ' + cursos[s].subject;
+    }
+  </script>
+
+  <!-- Navegação global -->
+  <script src="../../js/nav.js"></script>
+
+  <!-- phase.js consome window.PHASE_CONFIG e monta toda a página -->
+  <script src="../../js/phase.js"></script>
+
+</body>
+</html>

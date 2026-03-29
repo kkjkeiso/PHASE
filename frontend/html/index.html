@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHASE</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!--
+    index.html — Dashboard do usuário logado
+    - Redireciona para welcome.html se não estiver logado
+    - Exibe stats, atalhos rápidos e cards de PHASES
+  -->
+
+  <script>
+    // Protege a rota: requer autenticação
+    if (!localStorage.getItem('usuarioLogado')) {
+      window.location.replace('./welcome.html');
+    }
+  </script>
+
+  <div class="page-content">
+    <div class="index-grid">
+
+      <!-- ════════════════════════════════════════════════
+           Hero / Boas-vindas
+      ════════════════════════════════════════════════ -->
+      <div class="hero-card index-hero">
+        <div class="index-hero-body">
+
+          <!-- Cabeçalho com nome do usuário -->
+          <div>
+            <p class="index-greeting">
+              Bem-vindo de volta, <span id="hero-username">aluno</span>
+            </p>
+            <span style="font-family:'TTMilks',sans-serif; font-size:2.8rem;">PHASE</span>
+          </div>
+
+          <!-- Stats rápidas do localStorage -->
+          <div class="index-stats">
+            <div class="index-stat">
+              <span class="index-stat-num" id="stat-pts">0</span>
+              <span class="index-stat-label">Pontos</span>
+            </div>
+            <div class="index-stat">
+              <span class="index-stat-num" id="stat-quiz">0</span>
+              <span class="index-stat-label">Questionários</span>
+            </div>
+            <div class="index-stat">
+              <span class="index-stat-num">1</span>
+              <span class="index-stat-label">PHASE ativa</span>
+            </div>
+          </div>
+
+          <!-- Descrição da plataforma -->
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <p class="hero-sub">
+              Uma plataforma educacional criada por estudantes, para estudantes.
+              Conteúdo elaborado com o suporte da <strong style="color:var(--text)">SAGE AI</strong> —
+              questionários personalizados, tirar dúvidas em tempo real e um sistema de pontos
+              que acompanha seu progresso.
+            </p>
+            <p class="hero-sub">Estude no seu ritmo, sem pressão e sem barreiras.</p>
+          </div>
+
+          <!-- Atalhos rápidos -->
+          <div class="index-quick-actions">
+            <a href="./phases.html"     class="quick-btn"><i class="fa-solid fa-layer-group"></i> Ver PHASES</a>
+            <a href="./scoreboard.html" class="quick-btn"><i class="fa-solid fa-ranking-star"></i> Ranking</a>
+            <a href="./plans.html"      class="quick-btn"><i class="fa-solid fa-crown"></i> Planos</a>
+          </div>
+        </div>
+
+        <p class="hero-title">Learn your way, learn with PHASE</p>
+      </div>
+
+      <!-- ════════════════════════════════════════════════
+           Cards laterais
+      ════════════════════════════════════════════════ -->
+      <div class="index-cards">
+
+        <!-- PHASE 1 disponível -->
+        <a href="./phases.html" class="card phase-card available" style="text-decoration:none;">
+          <span class="phase-label">Disponível agora</span>
+          <span class="phase-name">PHASE 1 — ENEM</span>
+          <div class="phase-thumb"><i class="fa-solid fa-book-open"></i></div>
+        </a>
+
+        <!-- Card: Projetos externos da escola -->
+        <div class="card external-card">
+          <span class="ext-title">Projetos do segundo ano</span>
+          <p class="ext-desc">Conheça os projetos desenvolvidos pelos estudantes do segundo ano de Informática
+            2025–2027 da Escola Estadual Professor Antônio Dantas.</p>
+          <a href="#" class="ext-link">
+            GitHub / Sites / Instagram
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <!-- Card: GitHub do PHASE -->
+        <div class="card external-card">
+          <span class="ext-title">Conheça o PHASE</span>
+          <p class="ext-desc">Veja o código fonte, acompanhe o desenvolvimento e contribua com a plataforma
+            educacional feita por estudantes.</p>
+          <a href="https://github.com/kkjkeiso/PHAse" class="ext-link" target="_blank" rel="noopener">
+            GitHub do projeto
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <!-- PHASE 3 em breve -->
+        <div class="card phase-card unavailable">
+          <span class="phase-label">Em breve</span>
+          <span class="phase-name">PHASE 3 — Livre</span>
+          <div class="phase-thumb"><i class="fa-solid fa-lock"></i></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Navegação global -->
+  <script src="../js/nav.js"></script>
+
+  <script>
+    // Preenche nome do usuário e stats a partir do localStorage
+    const u = localStorage.getItem('usuarioLogado') || 'aluno';
+    document.getElementById('hero-username').textContent = u;
+    document.getElementById('stat-pts').textContent  = localStorage.getItem('phase1_points')  || '0';
+    document.getElementById('stat-quiz').textContent = localStorage.getItem('phase1_quizzes') || '0';
+  </script>
+
+</body>
+</html>

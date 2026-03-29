@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHASE | Scoreboard</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!--
+    scoreboard.html — Ranking geral e progresso individual
+    - Tabela de ranking puxada do backend (placeholder quando vazio)
+    - Card de progresso mostra dados do localStorage se logado
+  -->
+
+  <div class="page-content">
+    <div class="scoreboard-stack">
+
+      <!-- ════════════════════════════════════════════════
+           Hero
+      ════════════════════════════════════════════════ -->
+      <div class="hero-card">
+        <div class="scoreboard-hero">
+          <div class="scoreboard-hero-left">
+            <span class="scoreboard-live-badge">
+              <span class="scoreboard-live-dot"></span> Ao vivo
+            </span>
+            <span class="scoreboard-title">Scoreboard</span>
+            <p class="hero-sub">
+              Acompanhe o ranking geral e o seu progresso individual em cada PHASE.
+            </p>
+          </div>
+          <i class="fa-solid fa-ranking-star"
+             style="font-size:3.5rem; color:rgba(124,109,250,0.2);"></i>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════════
+           Grid: tabela de ranking + progresso
+      ════════════════════════════════════════════════ -->
+      <div class="scoreboard-grid">
+
+        <!-- Tabela de ranking geral -->
+        <div class="card" style="padding:0; overflow:hidden;">
+
+          <div style="padding:28px 32px 20px; border-bottom:1px solid var(--border);">
+            <p class="card-label" style="margin-bottom:6px;">Ranking Geral</p>
+
+            <!-- Pódio top-3 (injetado via JS quando há dados) -->
+            <div id="podium-area" style="display:none;">
+              <div class="scoreboard-podium" id="podium"></div>
+            </div>
+          </div>
+
+          <table class="scoreboard-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Aluno</th>
+                <th>PHASES</th>
+                <th>Pontuação</th>
+              </tr>
+            </thead>
+            <tbody id="ranking-body">
+              <!-- Estado vazio padrão -->
+              <tr>
+                <td colspan="4" class="scoreboard-empty">
+                  Nenhum dado disponível ainda.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Card de progresso do usuário -->
+        <div class="card scoreboard-progress">
+          <p class="card-label">Seu Progresso</p>
+
+          <!-- Exibido quando não há sessão -->
+          <div id="progress-logged-out" class="progress-loggedout">
+            <i class="fa-solid fa-user-lock"
+               style="font-size:2rem; color:var(--text-muted);"></i>
+            <p class="hero-sub" style="font-size:0.9rem;">
+              Faça login para ver seu progresso e aparecer no ranking.
+            </p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+              <a href="./login.html"    class="btn btn-register">Entrar</a>
+              <a href="./register.html" class="btn btn-login">Cadastrar</a>
+            </div>
+          </div>
+
+          <!-- Exibido quando logado -->
+          <div id="progress-content" class="progress-content" style="display:none;">
+
+            <!-- Cabeçalho com avatar -->
+            <div class="progress-header">
+              <div class="progress-avatar" id="progress-avatar"></div>
+              <div>
+                <p class="progress-username" id="progress-username"></p>
+                <p style="font-size:0.78rem; color:var(--text-muted);"
+                   id="progress-pts-label"></p>
+              </div>
+            </div>
+
+            <!-- PHASES -->
+            <div class="progress-phases">
+              <div class="progress-row">
+                <span class="hero-sub" style="font-size:0.875rem;">PHASE 1 — ENEM</span>
+                <span id="phase1-status" class="progress-value">—</span>
+              </div>
+              <div class="progress-row">
+                <span class="hero-sub" style="font-size:0.875rem;">PHASE 2 — Técnico</span>
+                <span class="progress-value--locked">Indisponível</span>
+              </div>
+              <div class="progress-row">
+                <span class="hero-sub" style="font-size:0.875rem;">PHASE 3 — Livre</span>
+                <span class="progress-value--locked">Em breve</span>
+              </div>
+            </div>
+
+            <a href="./plans.html" class="btn btn-register" style="text-align:center; margin-top:auto;">
+              <i class="fa-solid fa-crown"></i> Ver planos
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navegação global -->
+  <script src="../js/nav.js"></script>
+
+  <script>
+    const usuario   = localStorage.getItem('usuarioLogado');
+    const loggedOut = document.getElementById('progress-logged-out');
+    const content   = document.getElementById('progress-content');
+
+    if (usuario) {
+      // Usuário logado: exibe card de progresso
+      loggedOut.style.display = 'none';
+      content.style.display   = 'flex';
+
+      const initial = usuario.charAt(0).toUpperCase();
+      document.getElementById('progress-avatar').textContent    = initial;
+      document.getElementById('progress-username').textContent  = usuario;
+
+      const pts     = parseInt(localStorage.getItem('phase1_points')  || '0');
+      const quizzes = parseInt(localStorage.getItem('phase1_quizzes') || '0');
+      document.getElementById('progress-pts-label').textContent = pts + ' pontos acumulados';
+
+      const statusEl = document.getElementById('phase1-status');
+      if (pts > 0 || quizzes > 0) {
+        statusEl.textContent = pts + ' pts · ' + quizzes + ' quest.';
+      } else {
+        statusEl.textContent      = 'Não iniciado';
+        statusEl.style.color      = 'var(--text-muted)';
+        statusEl.style.fontWeight = '600';
+      }
+
+    } else {
+      // Sem sessão: exibe bloco de login
+      loggedOut.style.display = 'flex';
+      content.style.display   = 'none';
+    }
+  </script>
+
+</body>
+</html>
