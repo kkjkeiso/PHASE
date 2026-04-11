@@ -1,7 +1,6 @@
-PHASE — Plataforma Heurística de Avaliação, Suporte e Educação
+PHASE
+Plataforma Heurística de Avaliação, Suporte e Educação
 
-PHAse é uma plataforma educacional desenvolvida para apoiar o aprendizado de alunos de qualquer idade. Com uma navegação simples e intuitiva, a PHASE foi pensado para que cada aluno possa estudar no seu próprio ritmo, sem pressão, evoluindo de forma gradual e consistente.
-Ao final de cada PHAse, o aluno encontra avaliações interativas elaboradas com base no conteúdo apresentado, permitindo medir o nível de compreensão e identificar pontos que precisam de reforço. A proposta é unir teoria e prática em um único ambiente, tornando o processo de aprendizagem mais dinâmico e eficiente.
+PHASE é uma plataforma educacional desenvolvida por estudantes, para estudantes, com o objetivo de modernizar o ensino em todos os níveis e faixas etárias. A plataforma utiliza inteligência artificial, com suporte a RAG (Retrieval-Augmented Generation), para oferecer uma experiência única e um aprendizado individualizado, adaptando-se às necessidades específicas de cada aluno e potencializando seu desempenho por meio de uma jornada de ensino personalizada, dinâmica e engajadora.
 
-
-Aprenda do seu jeito, evolua a cada PHASE.
+Aprenda no seu ritmo. Evolua com PHASE
