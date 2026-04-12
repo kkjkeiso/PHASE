@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHASE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="frontend/css/global.css" />
+  <link rel="stylesheet" href="frontend/css/landing.css" />
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="logo"><span>PHASE</span></a>
+      <div class="nav__links" id="navLinks">
+        <a href="#sage">SAGE AI</a>
+        <a href="#metodologia">Metodologia</a>
+        <a href="#ranking">Ranking</a>
+        <a href="frontend/html/login.html" class="btn btn--ghost btn--sm">Entrar</a>
+        <a href="frontend/html/register.html" class="btn btn--primary btn--sm">Criar conta</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Alternar modo claro/escuro">
+        <span class="theme-toggle__track">
+          <span class="theme-toggle__thumb">
+            <svg class="theme-toggle__icon theme-toggle__sun" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+            </svg>
+            <svg class="theme-toggle__icon theme-toggle__moon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+            </svg>
+          </span>
+        </span>
+      </button>
+      <button class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero__content">
+      <div class="badge reveal">Desenvolvido por estudantes, para estudantes</div>
+      <h1 class="hero__title reveal">Aprenda no seu ritmo<br>Evolua com <span class="accent">PHASE</span></h1>
+      <p class="hero__sub reveal">Com PHASE, cada um aprende do seu jeito: conteúdo adaptativo, suporte inteligente e uma jornada de aprendizado que evolui junto com você!</p>
+      <div class="hero__actions reveal">
+        <a href="frontend/html/register.html" class="btn btn--primary">Criar conta</a>
+        <a href="frontend/html/login.html" class="btn btn--ghost">Já tenho conta</a>
+      </div>
+    </div>
+    <div class="hero__mockup reveal">
+      <div class="mockup">
+        <div class="mockup__bar">
+          <div class="mockup__dots"><span></span><span></span><span></span></div>
+          <div class="mockup__title"><span>PHASE</span></div>
+          <div class="mockup__status"><span class="status-dot"></span> online</div>
+        </div>
+        <div class="mockup__body" id="mockupBody"></div>
+        <div class="mockup__input">
+          <span class="mockup__placeholder">Pergunta para a SAGE AI...</span>
+          <div class="mockup__send"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAGE AI -->
+  <section class="section section--sage" id="sage">
+    <div class="section__inner">
+      <div class="sage__eyebrow reveal">
+        <div class="tag">Inteligência Artificial</div>
+      </div>
+      <div class="sage__split">
+        <div class="sage__left reveal">
+          <h2 class="sage__title">Conheça a<br><span class="accent">SAGE AI</span></h2>
+          <p class="sage__desc">A SAGE AI <em>(Specialized AI for General Education and Accessibility Integration)</em> é um sistema de inteligência artificial projetado para orquestrar múltiplos modelos de IA, oferecendo experiências personalizadas de aprendizado e acessibilidade digital</p>
+          <p class="sage__desc">Utilizando RAG, ela busca informações em bases curadas, garantindo que cada resposta seja precisa e alinhada ao conteúdo que você estuda e no rirmo conforme você evolui.</p>
+        </div>
+        <div class="sage__right reveal">
+          <div class="sage__bento">
+            <div class="sage__tile sage__tile--wide">
+              <div class="sage__tile-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <h4>Bases curadas</h4>
+              <p>Conteúdo verificado e alinhado às principais diretrizes do currículo nacional, abrangendo as áreas essenciais da formação educacional.</p>
+            </div>
+            <div class="sage__tile">
+              <div class="sage__tile-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <h4>Aprendizado adaptativo</h4>
+              <p>A IA se adapta ao seu ritmo, entregando conteúdo no momento correto.</p>
+            </div>
+            <div class="sage__tile sage__tile--accent">
+              <div class="sage__tile-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h4>Precisão garantida</h4>
+              <p>RAG elimina alucinações comuns em IAs genéricas</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METODOLOGIA -->
+  <section class="section section--metodo" id="metodologia">
+    <div class="section__inner">
+      <div class="metodo__header reveal">
+        <div class="tag">Metodologia</div>
+        <h2 class="section__title">Aprenda no <span class="accent">seu tempo</span></h2>
+      </div>
+      <div class="metodo__desc reveal">
+        <p>A PHASE foi criado com a premissa de que cada aluno tem um ritmo único de aprender. Não existem prazos, provas obrigatórias ou pressão por desempenho.</p>
+      </div>
+      <div class="metodo__tabs reveal" role="tablist">
+        <button class="metodo__tab active" data-tab="aulas" role="tab">Aulas estruturadas</button>
+        <button class="metodo__tab" data-tab="quiz" role="tab">Questionários dinâmicos</button>
+        <button class="metodo__tab" data-tab="phases" role="tab">PHASEs progressivas</button>
+        <button class="metodo__tab" data-tab="revisao" role="tab">Revisão ilimitada</button>
+      </div>
+      <div class="metodo__panels reveal">
+
+        <div class="metodo__panel active" id="tab-aulas">
+          <div class="metodo__panel-text">
+            <span class="metodo__panel-num">01</span>
+            <h3>Cada tema possui conteudo, videoaulas e material de apoio organizado progressivamente.</h3>
+            <p>Os conteúdos são estruturados para que você vá do zero ao avançado sem lacunas — cada aula constrói sobre a anterior, no ritmo que funciona para você.</p>
+          </div>
+          <div class="metodo__panel-visual">
+            <div class="metodo__lesson-list">
+              <div class="metodo__lesson metodo__lesson--done"><span class="metodo__lesson-check">✓</span><span>Funções do 1º grau</span><span class="metodo__lesson-pts">+125 pts</span></div>
+              <div class="metodo__lesson metodo__lesson--done"><span class="metodo__lesson-check">✓</span><span>Funções do 2º grau</span><span class="metodo__lesson-pts">+275 pts</span></div>
+              <div class="metodo__lesson metodo__lesson--active"><span class="metodo__lesson-check metodo__lesson-check--now">▶</span><span>Funções exponenciais</span><span class="metodo__lesson-pts accent">Agora</span></div>
+              <div class="metodo__lesson metodo__lesson--locked"><span class="metodo__lesson-check metodo__lesson-check--lock">○</span><span>Funções logarítmicas</span><span class="metodo__lesson-pts" style="color:var(--muted)">Em breve</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="metodo__panel" id="tab-quiz">
+          <div class="metodo__panel-text">
+            <span class="metodo__panel-num">02</span>
+            <h3>Questionários únicos gerados pela SAGE AI com base no conteúdo estudado</h3>
+            <p>Cada questionário é único, gerado dinamicamente com base no seu nível atual, adaptando a dificuldade e o formato das questões para acompanhar sua evolução da melhor forma possível.</p>
+          </div>
+          <div class="metodo__panel-visual">
+            <div class="metodo__quiz-card">
+              <div class="metodo__quiz-tag">Questão gerada pela SAGE AI</div>
+              <p class="metodo__quiz-q">Qual é o domínio da função f(x) = √(x − 3)?</p>
+              <div class="metodo__quiz-opts">
+                <div class="metodo__quiz-opt">x ∈ ℝ</div>
+                <div class="metodo__quiz-opt metodo__quiz-opt--correct">x ≥ 3 ✓</div>
+                <div class="metodo__quiz-opt">x > 0</div>
+                <div class="metodo__quiz-opt">x ≤ 3</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="metodo__panel" id="tab-phases">
+          <div class="metodo__panel-text">
+            <span class="metodo__panel-num">03</span>
+            <h3>Estude o conteudo que quiser, quando quiser</h3>
+            <p>Cada etapa é projetada para um objetivo diferente. Você escolhe onde quer chegar e o PHASE traça o caminho.</p>
+          </div>
+          <div class="metodo__panel-visual">
+            <div class="metodo__phases-track">
+              <div class="metodo__phase-item metodo__phase-item--done">
+                <div class="metodo__phase-node">1</div>
+                <div class="metodo__phase-info"><strong>PHASE 1</strong><span>Currículo nacional</span></div>
+                <span class="feature__badge">Disponível</span>
+              </div>
+              <div class="metodo__phase-line metodo__phase-line--dim"></div>
+              <div class="metodo__phase-item metodo__phase-item--soon">
+                <div class="metodo__phase-node metodo__phase-node--soon">2  </div>
+                <div class="metodo__phase-info"><strong>PHASE 2</strong><span>Técnico</span></div>
+                <span class="feature__badge">Em breve</span>
+              </div>
+              <div class="metodo__phase-line metodo__phase-line--dim"></div>
+              <div class="metodo__phase-item metodo__phase-item--soon">
+                <div class="metodo__phase-node metodo__phase-node--soon">3</div>
+                <div class="metodo__phase-info"><strong>PHASE 3</strong><span>Livre</span></div>
+                <span class="feature__badge">Em breve</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="metodo__panel" id="tab-revisao">
+          <div class="metodo__panel-text">
+            <span class="metodo__panel-num">04</span>
+            <h3>Volte quantas vezes quiser. Sem limite de tentativas nem penalidade.</h3>
+            <p>Revisar faz parte do aprendizado. No PHASE, você nunca é penalizado por tentar de novo — cada revisão é uma oportunidade de consolidar o conhecimento.</p>
+          </div>
+          <div class="metodo__panel-visual">
+            <div class="metodo__revisao-stats">
+              <div class="metodo__stat"><span class="metodo__stat-val accent">∞</span><span class="metodo__stat-label">Tentativas</span></div>
+              <div class="metodo__stat"><span class="metodo__stat-val accent">0</span><span class="metodo__stat-label">Penalidades</span></div>
+              <div class="metodo__stat"><span class="metodo__stat-val accent">100%</span><span class="metodo__stat-label">Do seu ritmo</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RANKING -->
+  <section class="section section--ranking" id="ranking">
+    <div class="section__inner">
+      <div class="ranking__layout">
+        <div class="ranking__text reveal">
+          <div class="tag">Sistema de pontos</div>
+          <h2 class="section__title">Suba no <span class="accent">ranking</span></h2>
+          <p class="ranking__desc">Suba conforme evolui: cada questionário concluído, resposta correta e aula finalizada gera pontos que consolidam sua posição. Mais do que rapidez, a progressão valoriza consistência e dedicação.</p>
+          <p class="ranking__desc">O desempenho desbloqueia recompensas progressivas, incluindo acesso a planos avançados e descontos exclusivos — com base no próprio mérito.</p>
+          <div class="ranking__pts-grid">
+            <div class="ranking__pts-item"><span class="ranking__pts-val">+10</span><span class="ranking__pts-label">por resposta certa</span></div>
+            <div class="ranking__pts-item"><span class="ranking__pts-val">+50</span><span class="ranking__pts-label">questionário completo</span></div>
+            <div class="ranking__pts-item"><span class="ranking__pts-val">+25</span><span class="ranking__pts-label">sequência de acertos</span></div>
+            <div class="ranking__pts-item ranking__pts-item--highlight"><span class="ranking__pts-val">+100</span><span class="ranking__pts-label">pontuação perfeita</span></div>
+          </div>
+        </div>
+        <div class="ranking__board reveal">
+          <div class="ranking__board-header">
+            <span class="ranking__board-title">Ranking semanal</span>
+            <span class="feature__badge">Ao vivo</span>
+          </div>
+          <div class="ranking__board-list">
+            <div class="ranking__row ranking__row--gold"><span class="ranking__pos">🥇</span><div class="ranking__avatar">A</div><span class="ranking__name">Ana Beatriz</span><span class="ranking__score">12.480 pts</span></div>
+            <div class="ranking__row ranking__row--silver"><span class="ranking__pos">🥈</span><div class="ranking__avatar">M</div><span class="ranking__name">Matheus R.</span><span class="ranking__score">11.920 pts</span></div>
+            <div class="ranking__row ranking__row--bronze"><span class="ranking__pos">🥉</span><div class="ranking__avatar">J</div><span class="ranking__name">Julia S.</span><span class="ranking__score">10.750 pts</span></div>
+            <div class="ranking__row"><span class="ranking__pos" style="color:var(--muted)">4</span><div class="ranking__avatar ranking__avatar--dim">C</div><span class="ranking__name">Carlos M.</span><span class="ranking__score">9.300 pts</span></div>
+            <div class="ranking__row"><span class="ranking__pos" style="color:var(--muted)">5</span><div class="ranking__avatar ranking__avatar--dim">L</div><span class="ranking__name">Larissa T.</span><span class="ranking__score">8.870 pts</span></div>
+            <div class="ranking__row ranking__row--you"><span class="ranking__pos" style="color:var(--muted)">?</span><div class="ranking__avatar ranking__avatar--you">?</div><span class="ranking__name">Você</span><span class="ranking__score accent">— Comece já</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cta">
+    <div class="cta-grain"></div>
+    <div class="section__inner section__inner--center">
+      <h2 class="section__title reveal">Começe agora a estudar <br>com a <span class="accent">SAGE AI</span> ao seu lado.</h2>
+      <div class="cta-actions reveal">
+        <a href="frontend/html/register.html" class="btn btn--primary">Criar conta grátis</a>
+        <a href="frontend/html/login.html" class="btn btn--ghost">Já tenho conta</a>
+        <a href="#" class="btn btn--ghost">Ver planos e preços</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="logo"><span>PHASE</span></span>
+      <p>Plataforma Heurística de Avaliação, Suporte e Educação © 2026</p>
+      <p class="footer__sub">Projeto acadêmico pessoal — Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <script src="frontend/js/global.js"></script>
+  <script src="frontend/js/landing.js"></script>
+  <script>
+    const tabs = document.querySelectorAll('.metodo__tab');
+    const panels = document.querySelectorAll('.metodo__panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
