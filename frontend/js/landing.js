@@ -1,5 +1,6 @@
 /* ================================
-   EQUALITY — landing.js
+   PHASE — landing.js
+   Animação do mockup, tabs de metodologia e auth-aware buttons
    ================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,25 +10,88 @@ document.addEventListener('DOMContentLoaded', () => {
   initNav();
 
   /* ================================
-     MOCK CHAT ROTATION
-     Rotaciona cenários de conversa no mockup da landing com animação de entrada
+     TABS DE METODOLOGIA
+     Alterna entre painéis (Aulas, Quiz, PHASES, Revisão)
+     ================================ */
+  const tabs = document.querySelectorAll('.metodo__tab');
+  const panels = document.querySelectorAll('.metodo__panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      const panel = document.getElementById('tab-' + tab.dataset.tab);
+      if (panel) panel.classList.add('active');
+    });
+  });
+
+  /* ================================
+     AUTH-AWARE BUTTONS
+     Troca botões de login/registro por atalhos quando logado
+     ================================ */
+  const loggedIn = Auth.isLoggedIn();
+  const user = Auth.getUser();
+  const dashUrl = 'frontend/html/dashboard.html';
+
+  if (loggedIn) {
+    /* Navbar */
+    const navAuth = document.getElementById('navAuthBtns');
+    if (navAuth) {
+      navAuth.innerHTML = `
+        <a href="${dashUrl}" class="btn btn--primary btn--sm">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> Acessar plataforma
+        </a>`;
+    }
+
+    /* Hero */
+    const heroAuth = document.getElementById('heroAuthBtns');
+    if (heroAuth) {
+      heroAuth.innerHTML = `
+        <a href="${dashUrl}" class="btn btn--primary">
+          <i class="fa-solid fa-rocket"></i> Continuar estudando
+        </a>
+        <a href="frontend/html/planos.html" class="btn btn--ghost">
+          <i class="fa-solid fa-crown"></i> Ver planos
+        </a>`;
+    }
+
+    /* CTA final */
+    const ctaAuth = document.getElementById('ctaAuthBtns');
+    if (ctaAuth) {
+      ctaAuth.innerHTML = `
+        <a href="${dashUrl}" class="btn btn--primary">
+          <i class="fa-solid fa-layer-group"></i> Prosseguir para minhas PHASES
+        </a>
+        <a href="frontend/html/planos.html" class="btn btn--ghost">
+          <i class="fa-solid fa-crown"></i> Ver planos
+        </a>`;
+    }
+  }
+
+  /* ================================
+     MOCK SCENARIOS — PHASE (educação)
+     Cada cenário simula uma interação real da plataforma
      ================================ */
   const chatScenarios = [
     [
-      { type: 'user', text: 'Esse texto tá muito confuso...<br><br>"O preposto almejava deferimento na exordial".' },
-      { type: 'sage', text: 'Claro! Que tal:<br><br>"O representante da empresa pediu aprovação no início do processo."' },
+      { type: 'user', text: 'Qual é a diferença entre "mas" e "mais"?' },
+      { type: 'phase', text: '<b>Mas</b> = conjunção adversativa (porém).<br><br><b>Mais</b> = advérbio de intensidade (adição).<br><br>Ex: "Estudei muito, <em>mas</em> preciso de <em>mais</em> prática."' },
     ],
     [
-      { type: 'user', text: 'Pode verificar o dashboard que criei pras métricas?' },
-      { type: 'sage', text: 'Analisando...<br><br>Atenção: A paleta falhou no Contraste Nível AA.<br>Alt-Text sugerido: "Gráfico de barras indicando alta produtividade".' },
+      { type: 'user', text: 'Não entendi a função exponencial. Pode simplificar?' },
+      { type: 'phase', text: 'Claro! Uma função exponencial é tipo <b>f(x) = 2ˣ</b>.<br><br>Quanto maior o x, mais rápido o valor cresce. É o oposto do logaritmo!<br><br>Quer que eu gere um questionário sobre isso?' },
     ],
     [
-      { type: 'user', text: 'Preciso transcrever parte de uma reunião técnica agora.' },
-      { type: 'sage', text: 'Áudio vinculado ao microfone!<br><br>Sintetizando modelo visual 3D em <b>Libras</b> e transcrevendo destaques de áudio em tempo real.' },
+      { type: 'user', text: 'Como começo uma redação do ENEM?' },
+      { type: 'phase', text: '<b>Introdução modelo:</b><br><br>1. Contextualize o tema<br>2. Apresente sua tese<br>3. Enumere os argumentos<br><br>Lembre-se: a banca avalia <em>repertório sociocultural</em> e proposta de intervenção!' },
+    ],
+    [
+      { type: 'user', text: 'Qual a diferença entre célula animal e vegetal?' },
+      { type: 'phase', text: 'A célula <b>vegetal</b> tem:<br>• Parede celular<br>• Cloroplastos<br>• Vacúolo grande<br><br>A célula <b>animal</b> tem centríolos e lisossomos mais abundantes.' },
     ],
   ];
 
-  /* Renderiza um cenário no mockup com delay escalonado entre as mensagens */
+  /* Renderiza um cenário no mockup com delay escalonado */
   function runScenario(scenarioIndex) {
     const body = document.getElementById('mockupBody');
     if (!body) return;
@@ -52,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currScenario = 0;
   runScenario(currScenario);
 
-  /* A cada 8s faz fade out das mensagens atuais e carrega o próximo cenário */
+  /* A cada 8s faz fade out e carrega o próximo cenário */
   setInterval(() => {
     const body = document.getElementById('mockupBody');
     if (!body) return;

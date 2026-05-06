@@ -1,5 +1,5 @@
 /* ================================
-   EQUALITY — global.js
+   PHASE — global.js
    Auth state, config da API e utilitários compartilhados
    ================================ */
 
@@ -22,8 +22,8 @@ const API = {
    Gerencia token e dados do usuário via localStorage/sessionStorage
    ================================ */
 const Auth = {
-  TOKEN_KEY: 'sage_token',
-  USER_KEY:  'sage_user',
+  TOKEN_KEY: 'phase_token',
+  USER_KEY:  'phase_user',
 
   /* Retorna o token salvo, independente do storage utilizado */
   getToken() {
@@ -60,7 +60,7 @@ const Auth = {
 
   /* Redireciona para o chat se o usuário já estiver logado (usar no topo de login/register) */
   redirectIfLoggedIn() {
-    if (this.isLoggedIn()) window.location.href = 'chat.html';
+    if (this.isLoggedIn()) window.location.href = 'dashboard.html';
   },
 
   /* Redireciona para login se o usuário não estiver logado (opcional — permite guest) */
@@ -154,7 +154,7 @@ function initNav() {
    ================================ */
 function initTheme() {
   /* Aplica tema salvo, ou dark como padrão */
-  const saved = localStorage.getItem('eq_theme') || 'dark';
+  const saved = localStorage.getItem('phase_theme') || 'dark';
   document.documentElement.setAttribute('data-theme', saved);
 
   const btn = document.getElementById('themeToggle');
@@ -164,7 +164,7 @@ function initTheme() {
     const current = document.documentElement.getAttribute('data-theme');
     const next    = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('eq_theme', next);
+    localStorage.setItem('phase_theme', next);
   });
 }
 

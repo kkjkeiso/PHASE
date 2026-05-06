@@ -1,5 +1,5 @@
 /* ================================
-   EQUALITY — auth.js
+   PHASE — auth.js
    Login e Register
    ================================ */
 
@@ -40,7 +40,7 @@ function initLoginPage() {
     try {
       const data = await Http.post(API.LOGIN, { email, password });
       Auth.save(data.token, data.user, remember);
-      window.location.href = 'chat.html';
+      window.location.href = 'dashboard.html';
     } catch (err) {
       showFormError(formError, err.message || 'E-mail ou senha incorretos');
     } finally {
@@ -111,7 +111,7 @@ function initRegisterPage() {
     try {
       const data = await Http.post(API.REGISTER, { name, email, password });
       Auth.save(data.token, data.user, false);
-      window.location.href = 'chat.html';
+      window.location.href = 'dashboard.html';
     } catch (err) {
       showFormError(formError, err.message || 'Erro ao criar conta');
     } finally {

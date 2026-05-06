@@ -1,5 +1,5 @@
 /* ================================
-   EQUALITY — global.css
+   PHASE — global.css
    Variáveis, reset e componentes compartilhados
    ================================ */
 
@@ -12,6 +12,7 @@
   --green: #0064FF;
   --green-dim: rgba(0, 100, 255, .08);
   --green-mid: #0064FF;
+  --accent: #7c6dfa;
   --white: #F5F5F5;
   --muted: #666;
   --danger: #e05252;
@@ -41,6 +42,7 @@
   --green: #0050CC;
   --green-dim: rgba(0, 100, 255, .10);
   --green-mid: #0050CC;
+  --accent: #0064FF;
   --white: #0D0D0D;
   --muted: #4a5270;
   --danger: #c63030;
@@ -129,7 +131,7 @@
   background: #111111;
 }
 
-[data-theme="light"] .msg--sage {
+[data-theme="light"] .msg--phase {
   background: #0064FF;
   color: #ffffff;
 }
@@ -207,6 +209,10 @@ body {
 /* ---- ACCENT ---- */
 .accent {
   color: var(--green);
+}
+
+.text-muted {
+  color: var(--muted) !important;
 }
 
 /* ---- BUTTONS ---- */

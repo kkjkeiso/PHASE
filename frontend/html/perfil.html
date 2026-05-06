@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHASE — Meu Perfil</title>
+  <meta name="description" content="PHASE — Gerencie suas informações pessoais" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/app.css" />
+  <script src="../js/early-auth.js"></script>
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <main class="main-content">
+      <div class="main-header">
+        <div class="main-header__title reveal">
+          <h1>Meu Perfil</h1>
+          <p>Gerencie suas informações pessoais.</p>
+        </div>
+        <div class="main-header__actions reveal">
+          <button class="btn btn--ghost" id="btnLogout"><i class="fa-solid fa-right-from-bracket"></i> Sair da Conta</button>
+        </div>
+      </div>
+
+      <!-- Card de perfil -->
+      <div class="profile-card reveal">
+        <div class="profile-card__avatar" id="profileAvatar">
+          <i class="fa-solid fa-user profile-avatar-icon"></i>
+        </div>
+        <div class="profile-card__info">
+          <span class="profile-card__name" id="profileName">Estudante</span>
+          <span class="profile-card__email" id="profileEmail">email@exemplo.com</span>
+          <span class="profile-card__username" id="profileUsername">@username</span>
+        </div>
+      </div>
+
+      <!-- Cards de informações (do original) -->
+      <div class="account-cards-grid reveal">
+        <div class="account-info-card">
+          <p class="account-info-card-title"><i class="fa-solid fa-circle-info"></i> Informações</p>
+          <div class="account-info-row"><span class="account-info-label">Plano atual</span><span class="account-info-value">Free</span></div>
+          <div class="account-info-row"><span class="account-info-label">PHASE ativa</span><span class="account-info-value">1</span></div>
+        </div>
+        <div class="account-info-card">
+          <p class="account-info-card-title"><i class="fa-solid fa-shield-halved"></i> Segurança</p>
+          <div class="account-info-row"><span class="account-info-label">Senha</span><span class="security-indicator"><i class="fa-solid fa-lock"></i> Protegida</span></div>
+          <div class="account-info-row"><span class="account-info-label">Sessão</span><span class="security-indicator"><i class="fa-solid fa-circle-check"></i> Ativa</span></div>
+          <div class="account-info-row"><span class="account-info-label">Criptografia</span><span class="account-info-value">bcrypt</span></div>
+        </div>
+        <div class="account-info-card">
+          <p class="account-info-card-title"><i class="fa-solid fa-chart-line"></i> Progresso</p>
+          <div class="account-info-row"><span class="account-info-label">PHASE 1 — ENEM</span><span class="account-info-value" id="progressPhase1">—</span></div>
+          <div class="account-info-row"><span class="account-info-label">PHASE 2 — Técnico</span><span class="account-info-value text-muted">Indisponível</span></div>
+          <div class="account-info-row"><span class="account-info-label">PHASE 3 — Livre</span><span class="account-info-value text-muted">Em breve</span></div>
+        </div>
+        <div class="account-info-card">
+          <p class="account-info-card-title"><i class="fa-solid fa-bolt"></i> Atalhos</p>
+          <div class="shortcuts-list">
+            <a href="enem.html" class="btn btn--ghost btn--full"><i class="fa-solid fa-layer-group"></i> Ver PHASES</a>
+            <a href="scoreboard.html" class="btn btn--ghost btn--full"><i class="fa-solid fa-ranking-star"></i> Ranking</a>
+            <a href="planos.html" class="btn btn--primary btn--full"><i class="fa-solid fa-crown"></i> Ver planos</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/global.js"></script>
+  <script src="../js/sidebar.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>
