@@ -76,19 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     [
       { type: 'user', text: 'Qual é a diferença entre "mas" e "mais"?' },
       { type: 'phase', text: '<b>Mas</b> = conjunção adversativa (porém).<br><br><b>Mais</b> = advérbio de intensidade (adição).<br><br>Ex: "Estudei muito, <em>mas</em> preciso de <em>mais</em> prática."' },
-    ],
-    [
-      { type: 'user', text: 'Não entendi a função exponencial. Pode simplificar?' },
-      { type: 'phase', text: 'Claro! Uma função exponencial é tipo <b>f(x) = 2ˣ</b>.<br><br>Quanto maior o x, mais rápido o valor cresce. É o oposto do logaritmo!<br><br>Quer que eu gere um questionário sobre isso?' },
-    ],
-    [
-      { type: 'user', text: 'Como começo uma redação do ENEM?' },
-      { type: 'phase', text: '<b>Introdução modelo:</b><br><br>1. Contextualize o tema<br>2. Apresente sua tese<br>3. Enumere os argumentos<br><br>Lembre-se: a banca avalia <em>repertório sociocultural</em> e proposta de intervenção!' },
-    ],
-    [
-      { type: 'user', text: 'Qual a diferença entre célula animal e vegetal?' },
-      { type: 'phase', text: 'A célula <b>vegetal</b> tem:<br>• Parede celular<br>• Cloroplastos<br>• Vacúolo grande<br><br>A célula <b>animal</b> tem centríolos e lisossomos mais abundantes.' },
-    ],
+    ]
   ];
 
   /* Renderiza um cenário no mockup com delay escalonado */
