@@ -1,4 +1,4 @@
-# Plano de Desenvolvimento — PHASE (Versão Final de Apresentação)
+# Plano de Desenvolvimento — PHASE
 > **Plataforma Heurística de Avaliação, Suporte e Educação**
 
 Este documento detalha o cronograma datado de atividades para refatoração, simplificação de arquivos e preparação do MVP do projeto PHASE para o V Seminário de Projetos Integradores e II Colóquio de Informática. O objetivo é concluir todo o desenvolvimento até 20 de julho de 2026, reservando o dia 21 de julho de 2026 (dia da viagem) em diante para testes e gravação de mídias de emergência.
@@ -11,22 +11,31 @@ Este documento detalha o cronograma datado de atividades para refatoração, sim
 * **Bloco 2: Ensino Técnico**: Informática.
 * **Bloco 3: SAGE AI**:
   * **Módulo de Chat Real**: Integração funcional com a API do Groq (utilizando o modelo Llama 3.3) intermediada pelo backend Spring Boot.
-  * **Módulo de Chat de Demonstração (Simulado)**: Interface interativa simulando fluxo multimodal, logs gamer ("Recuperando dados locais via RAG", "Processando imagem via Llama Vision", "Refinando resposta com Claude") e visualização do raciocínio lógico da IA.
+  * **Módulo de Chat de Demonstração (Simulado)**: Interface interativa simulando fluxo multimodal, logs de execução ("Recuperando dados locais via RAG", "Processando imagem via Llama Vision", "Refinando resposta com Claude") e visualização do raciocínio lógico da IA.
 
 ---
 
-## 2. Refatoração e Simplificação do Backend (Spring Boot)
+## 2. Refatoração Estrutural e Clean Code (Frontend)
 
-* **Entidades**: Manter apenas `User` (atualizada para persistência de progresso e pontuação) e as classes referentes a mensagens e sessões de chat.
-* **Simplificação de Camadas**: Exclusão de classes redundantes e DTOs excessivos, simplificando os fluxos.
+Para fins de organização, legibilidade de código para a banca avaliadora e aplicação das melhores práticas de desenvolvimento (Clean Code):
+* **Eliminação de Código Duplicado**: Todas as estruturas repetitivas hardcoded em HTML (como o grid estático de disciplinas e as linhas estáticas da tabela de classificação) serão inteiramente reformuladas.
+* **Componentização Dinâmica**: Os blocos estáticos duplicados serão substituídos por contêineres limpos preenchidos de forma dinâmica através de loops JavaScript, reduzindo a poluição visual dos arquivos fontes.
+* **Padronização de Nomenclatura**: Identificadores de elementos (IDs) e classes CSS customizadas serão renomeados para o idioma português de forma clara e objetiva.
+
+---
+
+## 3. Refatoração e Simplificação do Backend (Spring Boot)
+
+* **Entidades**: Manter apenas as classes `User` (atualizada para persistência de progresso e pontuação) e as classes referentes a mensagens e sessões de chat.
+* **Simplificação de Camadas**: Exclusão de classes redundantes e DTOs excessivos, simplificando os fluxos e controladores.
 * **Segurança e CORS**: Configuração no Spring Security para chamadas autenticadas do cliente sem bloqueios de CORS.
 
 ---
 
-## 3. Refatoração dos Documentos de Conteúdo (JSON)
+## 4. Refatoração dos Documentos de Conteúdo (JSON)
 
 Para suportar o novo modelo de grid dinâmico e evitar duplicidade de código no HTML:
-* **Padronização**: As matérias serão carregadas a partir de arquivos JSON estruturados na pasta `/frontend/data/`.
+* **Padronização**: As matérias serão carregadas a partir de arquivos JSON estruturados na pasta /frontend/data/.
 * **Criação de Arquivos**:
   - `portugues.json`: Limpeza e simplificação das estruturas atuais.
   - `matematica.json`: Criação com tópicos de matemática básica e cotidiana.
@@ -34,7 +43,7 @@ Para suportar o novo modelo de grid dinâmico e evitar duplicidade de código no
 
 ---
 
-## 4. Cronograma Datado (Prazo Limite: 20 de Julho)
+## 5. Cronograma Datado (Prazo Limite: 20 de Julho)
 
 ### 15 de Julho (Quarta-feira) — Dia 1: Banco de Dados e Entidade de Usuário
 * **Objetivo**: Integrar as colunas de pontuação e progresso ao PostgreSQL.
@@ -79,7 +88,7 @@ Para suportar o novo modelo de grid dinâmico e evitar duplicidade de código no
 
 ---
 
-## 5. Fase de Homologação e Preparação para apresentação (A partir de 21 de Julho)
+## 6. Fase de Homologação e Preparação do Pitch (A partir de 21 de Julho)
 
 Como o desenvolvedor viaja no dia 21 de Julho, o código fonte do MVP estará congelado. As seguintes atividades serão conduzidas a partir desta data:
 
