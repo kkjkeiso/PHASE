@@ -1,77 +1,88 @@
-# Plano de Desenvolvimento — PHASE
+# Plano de Desenvolvimento — PHASE (Versão Final de Apresentação)
 > **Plataforma Heurística de Avaliação, Suporte e Educação**
 
-Este documento detalha o plano de desenvolvimento e refatoração de sete dias para a plataforma PHASE, visando a sua consolidação e preparação para apresentação no V Seminário de Projetos Integradores e II Colóquio de Informática.
+Este documento detalha o cronograma datado de atividades para refatoração, simplificação de arquivos e preparação do MVP do projeto PHASE para o V Seminário de Projetos Integradores e II Colóquio de Informática. O objetivo é concluir todo o desenvolvimento até 20 de julho de 2026, reservando o dia 21 de julho de 2026 (dia da viagem) em diante para testes e gravação de mídias de emergência.
 
 ---
 
 ## 1. Escopo e Objetivos do MVP
 
-Para otimizar o tempo disponível (estimado em 3 a 4 horas diárias), o escopo de conteúdos será delimitado e focado nas seguintes áreas:
-
-* **Bloco 1: Conteúdos Básicos**: Disciplinas de Matemática e Português.
-* **Bloco 2: Ensino Técnico**: Disciplina de Informática.
+* **Bloco 1: Conteúdos Básicos**: Matemática e Português.
+* **Bloco 2: Ensino Técnico**: Informática.
 * **Bloco 3: SAGE AI**:
   * **Módulo de Chat Real**: Integração funcional com a API do Groq (utilizando o modelo Llama 3.3) intermediada pelo backend Spring Boot.
-  * **Módulo de Chat de Demonstração (Simulado)**: Interface interativa que simula o fluxo completo da plataforma. Apresentará logs de execução detalhados, exibição de ícones dos modelos processando (Llama, Claude, Whisper), mensagens de status do sistema ("Recuperando dados locais via RAG", "Processando imagem via Llama Vision", "Refinando resposta com Claude") e a visualização do processo de raciocínio lógico (bloco de pensamento estilo deep thinking).
+  * **Módulo de Chat de Demonstração (Simulado)**: Interface interativa simulando fluxo multimodal, logs gamer ("Recuperando dados locais via RAG", "Processando imagem via Llama Vision", "Refinando resposta com Claude") e visualização do raciocínio lógico da IA.
 
 ---
 
 ## 2. Refatoração e Simplificação do Backend (Spring Boot)
 
-O backend em Spring Boot passará por uma reestruturação para simplificar sua manutenção, reduzir acoplamentos desnecessários e tornar a arquitetura clara para apresentação técnica:
-1. **Estrutura de Entidades**: Manutenção exclusiva das classes essenciais, especificamente `User` (atualizada para persistência de progresso) e as classes referentes a mensagens e sessões de chat.
-2. **Simplificação de Camadas**: Redução de classes auxiliares e DTOs redundantes, priorizando estruturas diretas e tipos primitivos/Records quando aplicável.
-3. **Gerenciamento de Segurança**: Padronização da segurança das rotas e das configurações de CORS no Spring Security para garantir chamadas de API seguras originadas do frontend local.
+* **Entidades**: Manter apenas `User` (atualizada para persistência de progresso e pontuação) e as classes referentes a mensagens e sessões de chat.
+* **Simplificação de Camadas**: Exclusão de classes redundantes e DTOs excessivos, simplificando os fluxos.
+* **Segurança e CORS**: Configuração no Spring Security para chamadas autenticadas do cliente sem bloqueios de CORS.
 
 ---
 
-## 3. Cronograma de Atividades (Planejamento Diário)
+## 3. Refatoração dos Documentos de Conteúdo (JSON)
 
-### Dia 1: Ajuste de Entidades e Persistência de Dados do Usuário
-* **Objetivo**: Integrar as colunas de pontuação e progresso ao banco de dados relacional.
+Para suportar o novo modelo de grid dinâmico e evitar duplicidade de código no HTML:
+* **Padronização**: As matérias serão carregadas a partir de arquivos JSON estruturados na pasta `/frontend/data/`.
+* **Criação de Arquivos**:
+  - `portugues.json`: Limpeza e simplificação das estruturas atuais.
+  - `matematica.json`: Criação com tópicos de matemática básica e cotidiana.
+  - `informatica.json`: Criação com tópicos básicos de informática técnica e introdução ao desenvolvimento.
+
+---
+
+## 4. Cronograma Datado (Prazo Limite: 20 de Julho)
+
+### 15 de Julho (Quarta-feira) — Dia 1: Banco de Dados e Entidade de Usuário
+* **Objetivo**: Integrar as colunas de pontuação e progresso ao PostgreSQL.
 * **Ações**:
   - Adicionar as colunas `pontos` e `quizzesRespondidos` à classe de entidade `User`.
-  - Atualizar o controlador de usuário (`UserController`) para incluir e retornar essas métricas.
+  - Atualizar o controlador de usuário (`UserController`) para incluir e retornar essas métricas no perfil do estudante.
   - Implementar o endpoint `/api/users/ranking` para fornecer a ordenação dos estudantes com base no engajamento (Scoreboard).
 
-### Dia 2: Proxy Seguro de IA no Servidor
-* **Objetivo**: Eliminar requisições externas diretas do navegador do cliente e centralizar o consumo das APIs de IA no backend.
+### 16 de Julho (Quinta-feira) — Dia 2: Gateway Seguro de IA no Backend
+* **Objetivo**: Remover chaves de API expostas no frontend e centralizar chamadas na API do Spring Boot.
 * **Ações**:
-  - Criar o endpoint `POST /api/sage/ask` no Spring Boot.
-  - Transferir as chaves de API e a lógica de comunicação externa para o backend, protegendo as credenciais de acesso.
-  - Atualizar as chaves criptográficas de sessão (JWT) para as chamadas autenticadas do cliente.
+  - Criar o endpoint `POST /api/sage/ask` no Spring Boot para processar dúvidas com a IA de forma segura.
+  - Centralizar chaves da Groq e da Anthropic no arquivo `application.properties` (consumindo variáveis de ambiente locais).
+  - Ajustar o frontend para fazer chamadas diretas a este endpoint local passando o cabeçalho de autenticação JWT.
 
-### Dia 3: Dinamização de Matérias e Interface de Aula
-* **Objetivo**: Otimizar a estrutura do frontend através de carregamentos dinâmicos e inclusão do mini-chat de suporte.
+### 17 de Julho (Sexta-feira) — Dia 3: Dinamização de Matérias e Refatoração de Documentos JSON
+* **Objetivo**: Limpar o HTML duplicado e consolidar os dados das disciplinas básicas e técnica.
 * **Ações**:
-  - Centralizar as informações das disciplinas (Matemática, Português e Informática) em um arquivo de dados estruturado no frontend.
-  - Renderizar o grid de seleção de matérias de forma dinâmica utilizando loops no JavaScript, eliminando códigos HTML redundantes.
-  - Desenvolver o componente de mini-chat flutuante integrado na tela de leitura da aula para permitir consultas rápidas sobre o tópico atual.
+  - Criar e organizar as bases de dados nos arquivos `portugues.json`, `matematica.json` e `informatica.json`.
+  - Atualizar o frontend para ler e desenhar o grid de matérias dinamicamente com loops JavaScript.
+  - Desenvolver o componente do mini-chat flutuante lateral (suporte rápido) para abrir durante a leitura dos tópicos de aula.
 
-### Dia 4: Integração de Quizzes e Atualização de Progresso
-* **Objetivo**: Conectar as atividades pedagógicas ao sistema de recompensas do banco de dados.
+### 18 de Julho (Sábado) — Dia 4: Integração dos Quizzes e Sincronização do Dashboard
+* **Objetivo**: Persistir os resultados das autoavaliações e exibir dados dinâmicos no painel.
 * **Ações**:
-  - Implementar o endpoint `/api/quiz/generate` no backend para entrega de questionários específicos de cada tópico.
-  - Criar a lógica de recompensa que incrementa a pontuação no perfil do banco de dados após a conclusão das atividades.
-  - Sincronizar os componentes visuais do painel de controle (Dashboard) com os dados persistidos no PostgreSQL.
+  - Implementar o endpoint `/api/quiz/generate` para fornecer as perguntas de cada tópico.
+  - Atualizar a lógica do quiz para salvar o progresso e acumular pontos diretamente no banco de dados do usuário logado.
+  - Substituir os números fixos do painel (`dashboard.html`) pelas estatísticas reais puxadas do banco de dados.
 
-### Dia 5: Interface Dedicada de Chat da SAGE AI
-* **Objetivo**: Finalizar o layout e o gerenciamento de sessões na tela principal de suporte.
+### 19 de Julho (Domingo) — Dia 5: Interface de Chat Dedicado da SAGE AI
+* **Objetivo**: Implementar a UI interativa e o gerenciamento de sessões de chat.
 * **Ações**:
-  - Desenvolver o layout da página dedicada de chat com suporte a histórico de conversas.
-  - Integrar os endpoints de listagem e criação de sessões existentes do backend na interface do usuário.
+  - Desenvolver o design da tela dedicada de chat (`chat-sage.html`) com suporte a histórico lateral.
+  - Integrar os controladores de sessões e mensagens do backend para carregar conversas passadas.
 
-### Dia 6: Implementação do Chat de Demonstração (Mecanismo Simulado)
-* **Objetivo**: Desenvolver o fluxo visual e interativo de simulação multimodal para a banca examinadora.
+### 20 de Julho (Segunda-feira) — Dia 6: O Chat de Demonstração (Mecanismo Gamer)
+* **Objetivo**: Finalizar o fluxo simulado interativo para a apresentação presencial.
 * **Ações**:
-  - Criar o componente de carregamento sequencial simulando análise de imagem, busca RAG de referências locais e processamento por múltiplos modelos.
-  - Adicionar o bloco visual de raciocínio passo a passo (processo de pensamento da IA).
-  - Incorporar a síntese de voz local (conversão de texto em áudio via navegador) para a resposta final demonstrada.
+  - Implementar a animação gamer de carregamento (logs simulados, badges dos modelos em processamento e frases de status).
+  - Adicionar o bloco de raciocínio passo a passo colapsável (deep thinking).
+  - Integrar a síntese de voz (TTS do navegador) na resposta final.
 
-### Dia 7: Testes Integrados, Homologação e Preparação do Roteiro
-* **Objetivo**: Garantir a estabilidade da aplicação local e estruturar a demonstração.
-* **Ações**:
-  - Executar testes de ponta a ponta simulando novos cadastros, logins e progressões.
-  - Revisar a semântica do código, padronizando os identificadores em português.
-  - Praticar o roteiro de execução do MVP para a banca avaliadora.
+---
+
+## 5. Fase de Homologação e Preparação para apresentação (A partir de 21 de Julho)
+
+Como o desenvolvedor viaja no dia 21 de Julho, o código fonte do MVP estará congelado. As seguintes atividades serão conduzidas a partir desta data:
+
+* **Homologação Local**: Testes de novos fluxos de usuários em computadores distintos utilizando conexão local.
+* **Gravação de Emergência**: Captura de vídeos demonstrativos da aplicação funcionando localmente (tela e voz). Isso servirá de contingência caso a infraestrutura de rede ou de internet do evento apresente instabilidade ou falhas durante a banca.
+* **Refinamento do Pitch**: Praticar a apresentação focando na proposta de valor da plataforma e na arquitetura técnica limpa implementada.
